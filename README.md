@@ -80,6 +80,6 @@ This program is free software; you can redistribute it and/or modify it under th
 
 ## Links
 
-- pgrouting Docker hub: https://hub.docker.com/r/pgrouting/docker-pgrouting/
+- pgRouting Docker hub: https://hub.docker.com/r/pgrouting/docker-pgrouting/
 - pgRouting project: https://pgrouting.org/
 - pgRouting github: https://github.com/pgRouting
