@@ -1,7 +1,7 @@
 version: "3"
 services:
   postgis:
-    image: pgrouting/pgrouting:pg10_2.6.1
+    image: pgrouting/pgrouting:pg10_3.0.0-dev
     ports:
       - "5432:5432"
     volumes:
