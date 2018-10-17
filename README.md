@@ -21,7 +21,7 @@ There are several versions available:
 
 Run postgres database:
 ```
-$ cd 3.0.0-dev
+$ cd 3.0.0-dev/pg10
 $ docker-compose up
 ```
 
@@ -80,5 +80,6 @@ This program is free software; you can redistribute it and/or modify it under th
 
 ## Links
 
+- pgrouting Docker hub: https://hub.docker.com/r/pgrouting/docker-pgrouting/
 - pgRouting project: https://pgrouting.org/
 - pgRouting github: https://github.com/pgRouting
