@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+# coding=UTF-8
+
+import sys, os
+
+pgHome = "/data/"
+
+def error():
+    print "Usage:"
+    print "l: show postgresql.conf content"
+    print "a: adds hash-separated lines to postgresql.conf, for example postgresql_conf a \"listen_addresses='*'#shared_buffers=128MB\""
+    print "d: deletes hash-separated lines from pg_hba.conf, for example postgresql_conf d \"listen_addresses='*'#shared_buffers=128MB\""
+    sys.exit(1)
+
+
+# Check if no argument is submitted
+if len(sys.argv)==1:
+    error()
+
+
+# List command
+if sys.argv[1]=="l":
+    try:
+        f = open("%s/postgresql.conf" % pgHome, "r")
+        print f.read()
+        f.close()
+    except:
+        error()
+
+    sys.exit(0)
+
+
+# Add command
+if sys.argv[1]=="a":
+    try:
+        entries = sys.argv[2].split("#")
+        f = open("%s/postgresql.conf" % pgHome, "a")
+
+        for i in entries:
+            f.write("%s\n" % i)
+
+        f.close()
+    except:
+        error()
+
+    sys.exit(0)
+
+
+# Delete command
+if sys.argv[1]=="d":
+    try:
+        entries = sys.argv[2].split("#")
+        f = open("%s/postgresql.conf" % pgHome, "r")
+        lines = []
+
+        for line in f:
+            if line.rstrip("\n") not in entries:
+                lines.append(line)
+
+        f.close()
+        f = open("%s/postgresql.conf" % pgHome, "w")
+
+        for line in lines:
+            f.write("%s" % line)
+
+        f.close()
+    except:
+        error()
+
+    sys.exit(0)

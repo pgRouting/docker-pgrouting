@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+# coding=UTF-8
+
+import sys, os
+
+pgHome = "/data/"
+
+def error():
+    print "Usage:"
+    print "l: show pg_hba.conf content"
+    print "a: adds hash-separated lines to pg_hba.conf, for example pg_hba_conf a \"host all all 127.0.0.1/32 trust#host all all 182.3.2.1/32 md5\""
+    print "d: deletes hash-separated lines from pg_hba.conf, for example pg_hba_conf d \"host all all 127.0.0.1/32 trust#host all all 182.3.2.1/32 md5\""
+    sys.exit(1)
+
+
+# Check if no argument is submitted
+if len(sys.argv)==1:
+    error()
+
+
+# List command
+if sys.argv[1]=="l":
+    try:
+        f = open("%s/pg_hba.conf" % pgHome, "r")
+        print f.read()
+        f.close()
+    except:
+        error()
+
+    sys.exit(0)
+
+
+# Add command
+if sys.argv[1]=="a":
+    try:
+        entries = sys.argv[2].split("#")
+        f = open("%s/pg_hba.conf" % pgHome, "a")
+
+        for i in entries:
+            f.write("%s\n" % i)
+
+        f.close()
+    except:
+        error()
+
+    sys.exit(0)
+
+
+# Delete command
+if sys.argv[1]=="d":
+    try:
+        entries = sys.argv[2].split("#")
+        f = open("%s/pg_hba.conf" % pgHome, "r")
+        lines = []
+
+        for line in f:
+            if line.rstrip("\n") not in entries:
+                lines.append(line)
+
+        f.close()
+        f = open("%s/pg_hba.conf" % pgHome, "w")
+
+        for line in lines:
+            f.write("%s" % line)
+
+        f.close()
+    except:
+        error()
+
+    sys.exit(0)
