@@ -29,7 +29,7 @@ $ docker-compose up
 
 Run postgres database:
 ```
-$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:pg10_3.0.0-dev
+$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:v3.0.0-dev-postgres_10
 ```
 
 ### Using psql with Docker compose:
