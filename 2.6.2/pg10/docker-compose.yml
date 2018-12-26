@@ -1,0 +1,12 @@
+version: "3"
+services:
+  postgis:
+    image: pgrouting/pgrouting:v2.6.2-postgresql_10
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/data
+    environment:
+      - POSTGRES_PASSWD=postgres
+volumes:
+  db-data:

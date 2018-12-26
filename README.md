@@ -14,6 +14,8 @@ There are several versions available:
 
 - [2.6.1 with Postgres 10](2.6.1/pg10).
 - [2.6.1 with Postgres 11](2.6.1/pg11).
+- [2.6.2 with Postgres 10](2.6.2/pg10).
+- [2.6.2 with Postgres 11](2.6.2/pg11).
 - [3.0.0.-dev with Postgres 10](3.0.0-dev/pg10).
 - [3.0.0.-dev with Postgres 11](3.0.0-dev/pg11).
 
@@ -45,7 +47,7 @@ Type "help" for help.
 
 postgres@localhost ~>create database test;
 CREATE DATABASE
-     
+
 postgres@localhost ~>\c test
 You are now connected to database "test" as user "postgres".
 postgres@localhost test>create extension postgis;                                          
