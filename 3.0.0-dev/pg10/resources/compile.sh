@@ -1,6 +1,6 @@
-# Compilation of CGAL, pgRouting and osm2pgrouting
+# Compilation of pgRouting and osm2pgrouting
 
-# Install osm2pgrouting prerequisites
+# Install prerequisites
 apt-get update -y \
     && apt-get install -y \
 	       cmake \
@@ -15,19 +15,8 @@ apt-get update -y \
          libosmium2-dev
 
 # Untar
-cd $ROOTDIR/src ; tar -xvf CGAL-${CGAL_VERSION}.tar.gz ; cd ..
 cd $ROOTDIR/src ; tar -xvf ${PGROUTING_VERSION}.tar.gz ; cd ..
 cd $ROOTDIR/src ; tar -xvf v${OSM2PGR_VERSION}.tar.gz ; cd ..
-
-# Compilation of CGAL
-cd $ROOTDIR/src/cgal-releases-CGAL-${CGAL_VERSION}
-mkdir build
-cd build
-cmake ..
-make
-make install
-ldconfig
-cd ../../..
 
 # Compilation of pgRouting
 cd $ROOTDIR/src/pgrouting-${PGROUTING_VERSION}
