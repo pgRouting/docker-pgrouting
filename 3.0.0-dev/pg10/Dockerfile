@@ -14,7 +14,7 @@ RUN apt update \
         postgresql-server-dev-${PG_MAJOR} \
  && cd /usr/local/src \
  && wget https://github.com/pgRouting/pgrouting/archive/${PGROUTING_VERSION}.tar.gz \
- && tar xvf develop.tar.gz \
+ && tar xvf ${PGROUTING_VERSION}.tar.gz \
  && cd pgrouting-${PGROUTING_VERSION} \
  && mkdir build \
  && cd build \
