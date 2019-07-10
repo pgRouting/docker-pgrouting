@@ -1,6 +1,6 @@
-FROM mdillon/postgis:11
+FROM postgres:11
 
-# Environment
+ENV POSTGIS_MAJOR 2.5
 ENV PGROUTING_VERSION develop
 
 RUN apt update \
@@ -11,6 +11,7 @@ RUN apt update \
         wget \
         libboost-graph-dev \
         libpq-dev \
+        postgresql-${PG_MAJOR}-postgis-${POSTGIS_MAJOR} \
         postgresql-server-dev-${PG_MAJOR} \
  && cd /usr/local/src \
  && wget https://github.com/pgRouting/pgrouting/archive/${PGROUTING_VERSION}.tar.gz \
