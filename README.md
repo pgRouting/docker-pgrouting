@@ -16,6 +16,8 @@ There are several versions available:
 - [2.6.1 with Postgres 11](2.6.1/pg11).
 - [2.6.2 with Postgres 10](2.6.2/pg10).
 - [2.6.2 with Postgres 11](2.6.2/pg11).
+- [2.6.3 with Postgres 10](2.6.3/pg10).
+- [2.6.3 with Postgres 11](2.6.3/pg11).
 - [3.0.0.-dev with Postgres 10](3.0.0-dev/pg10).
 - [3.0.0.-dev with Postgres 11](3.0.0-dev/pg11).
 
