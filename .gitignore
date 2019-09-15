@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 # exclude development docker compose files
 *.dev.yml
 
 # exclude osm data files
 *.osm
+=======
+docker-compose.dev.yml
+>>>>>>> 3939e76c5b4e7ba706c4870ff33c0598bf7909c9
