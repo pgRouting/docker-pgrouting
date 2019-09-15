@@ -1,0 +1,5 @@
+# exclude development docker compose files
+*.dev.yml
+
+# exclude osm data files
+*.osm
