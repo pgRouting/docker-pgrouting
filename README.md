@@ -18,8 +18,10 @@ There are several versions available:
 - [2.6.2 with Postgres 11](2.6.2/pg11).
 - [2.6.3 with Postgres 10](2.6.3/pg10).
 - [2.6.3 with Postgres 11](2.6.3/pg11).
+- [2.6.3 with Postgres 12](2.6.3/pg12).
 - [3.0.0.-dev with Postgres 10](3.0.0-dev/pg10).
 - [3.0.0.-dev with Postgres 11](3.0.0-dev/pg11).
+- [3.0.0.-dev with Postgres 12](3.0.0-dev/pg12).
 
 ## How to use
 
@@ -35,7 +37,7 @@ $ docker-compose up
 
 Run postgres database:
 ```
-$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:v3.0.0-dev-postgres_10
+$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:v2.6.3-postgresql_11
 ```
 
 ### Using psql with Docker compose:
