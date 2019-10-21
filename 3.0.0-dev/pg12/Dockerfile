@@ -1,6 +1,6 @@
 FROM postgres:12
 
-ENV POSTGIS_MAJOR 2.5
+ENV POSTGIS_MAJOR 3
 ENV PGROUTING_VERSION develop
 
 RUN apt update \
@@ -33,7 +33,7 @@ RUN apt update \
         postgresql-server-dev-${PG_MAJOR} \
  && apt install -y \
         postgresql-${PG_MAJOR}-postgis-${POSTGIS_MAJOR}-scripts \
-        libboost-graph1.62.0 \
-        libboost-program-options1.62.0 \
+        libboost-graph1.67.0 \
+        libboost-program-options1.67.0 \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*
