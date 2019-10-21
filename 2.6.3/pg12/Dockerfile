@@ -1,6 +1,6 @@
 FROM postgres:12
 
-ENV POSTGIS_MAJOR 2.5
+ENV POSTGIS_MAJOR 3
 ENV PGROUTING_VERSION 2.6.3
 
 RUN apt update \
@@ -33,15 +33,16 @@ RUN apt update \
         libcgal-dev \
         libpq-dev \
         postgresql-server-dev-${PG_MAJOR} \
+ && apt update \
  && apt install -y \
         postgresql-${PG_MAJOR}-postgis-${POSTGIS_MAJOR}-scripts \
-        libboost-atomic1.62.0 \
-        libboost-chrono1.62.0 \
-        libboost-graph1.62.0 \
-        libboost-date-time1.62.0 \
-        libboost-program-options1.62.0 \
-        libboost-system1.62.0 \
-        libboost-thread1.62.0 \
+        libboost-atomic1.67.0 \
+        libboost-chrono1.67.0 \
+        libboost-graph1.67.0 \
+        libboost-date-time1.67.0 \
+        libboost-program-options1.67.0 \
+        libboost-system1.67.0 \
+        libboost-thread1.67.0 \
         libcgal12 \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*
