@@ -43,6 +43,6 @@ RUN apt update \
         libboost-program-options1.67.0 \
         libboost-system1.67.0 \
         libboost-thread1.67.0 \
-        libcgal12 \
+        libcgal13 \
  && apt autoremove -y \
  && rm -rf /var/lib/apt/lists/*
