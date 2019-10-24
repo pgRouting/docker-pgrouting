@@ -18,8 +18,10 @@ There are several versions available:
 - [2.6.2 with Postgres 11](2.6.2/pg11).
 - [2.6.3 with Postgres 10](2.6.3/pg10).
 - [2.6.3 with Postgres 11](2.6.3/pg11).
+- [2.6.3 with Postgres 12](2.6.3/pg12).
 - [3.0.0.-dev with Postgres 10](3.0.0-dev/pg10).
 - [3.0.0.-dev with Postgres 11](3.0.0-dev/pg11).
+- [3.0.0.-dev with Postgres 12](3.0.0-dev/pg12).
 
 ## How to use
 
@@ -27,7 +29,7 @@ There are several versions available:
 
 Run postgres database:
 ```
-$ cd 3.0.0-dev/pg10
+$ cd 2.6.3/pg12
 $ docker-compose up
 ```
 
@@ -35,7 +37,7 @@ $ docker-compose up
 
 Run postgres database:
 ```
-$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:v3.0.0-dev-postgres_10
+$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:v2.6.3-postgresql_12
 ```
 
 ### Using psql with Docker compose:
@@ -44,7 +46,7 @@ Example:
 
 ```
 $ docker-compose exec postgis psql -h localhost -U postgres
-psql (11.1)
+psql (12.0)
 Type "help" for help.
 
 postgres@localhost ~>create database test;
@@ -61,13 +63,13 @@ CREATE EXTENSION
 postgres@localhost test>select version();
                                                version                                                
 ------------------------------------------------------------------------------------------------------
- PostgreSQL 11.1 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0, 64-bit
+ PostgreSQL 12.0 (Debian 12.0-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
 (1 row)
 
 postgres@localhost test>select pgr_version();
                 pgr_version                
 -------------------------------------------
- (2.6.1,v2.6.1,1360698,release/2.6,1.65.1)
+(2.6.3,v2.6.3,b14f4d56b,master,1.67.0)
 (1 row)
 
 postgres@localhost test>select postgis_full_version();
@@ -75,8 +77,8 @@ postgres@localhost test>select postgis_full_version();
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------
- POSTGIS="2.5.0 r16836" [EXTENSION] PGSQL="110" GEOS="3.7.0-CAPI-1.11.0 673b9939" PROJ="Rel. 5.2.0, September 15th, 2018" GDAL="GDAL 2.3.2, released 2018/09/21" LIBXML="2.9.4" LIBJSON="0.12.
-1" LIBPROTOBUF="1.2.1" RASTER
+POSTGIS="3.0.0 r17983" [EXTENSION] PGSQL="120" GEOS="3.7.1-CAPI-1.11.1 27a5e771" PROJ="Rel. 5.2.0, September 15th, 2018" LIBXML="2.9.4" LIBJSON="0.12.1" LIBPROTOBUF="1.3.1" WAGYU="0.4.3 (In
+ternal)"
 (1 row)
 ```
 
