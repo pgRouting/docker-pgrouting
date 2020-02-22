@@ -42,10 +42,13 @@ for version in "${versions[@]}"; do
     srcSha256="$(curl -sSL "https://github.com/pgRouting/pgrouting/archive/v${srcVersion}.tar.gz" | sha256sum | awk '{ print $1 }')"
     (
         set -x
-        cp -p Dockerfile.template "$version/"
+        cp -p Dockerfile.template README.md.template docker-compose.yml.template "$version/"
         mv "$version/Dockerfile.template" "$version/Dockerfile"
         sed -i 's/%%POSTGIS_DOCKER_TAG_VERSION%%/'"$postgisDockerTagVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PGROUTING_SHA256%%/'"$srcSha256"'/g;' "$version/Dockerfile"
-        
+        mv "$version/README.md.template" "$version/README.md"
+        sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g;' "$version/README.md"
+        mv "$version/docker-compose.yml.template" "$version/docker-compose.yml"
+        sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g;' "$version/docker-compose.yml"
     )
 done
 
