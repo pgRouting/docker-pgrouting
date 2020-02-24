@@ -1,4 +1,4 @@
-FROM postgis/postgis:%%POSTGIS_DOCKER_TAG_VERSION%%
+FROM postgis/postgis:%%PG_MAJOR%%-%%POSTGIS_VERSION%%
 
 LABEL maintainer="pgRouting Project - https://pgrouting.net"
 
