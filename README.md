@@ -3,8 +3,11 @@
 pgRouting Docker images.
 
 ## Contents
+- [Contents](#contents)
 - [Versions](#versions)
+- [Tag roles](#tag-roles)
 - [How to use](#how-to-use)
+- [Develop](#develop)
 - [License](#license)
 - [Links](#links)
 
@@ -12,16 +15,24 @@ pgRouting Docker images.
 
 There are several versions available:
 
-- [2.6.1 with Postgres 10](2.6.1/pg10).
-- [2.6.1 with Postgres 11](2.6.1/pg11).
-- [2.6.2 with Postgres 10](2.6.2/pg10).
-- [2.6.2 with Postgres 11](2.6.2/pg11).
-- [2.6.3 with Postgres 10](2.6.3/pg10).
-- [2.6.3 with Postgres 11](2.6.3/pg11).
-- [2.6.3 with Postgres 12](2.6.3/pg12).
-- [3.0.0.-dev with Postgres 10](3.0.0-dev/pg10).
-- [3.0.0.-dev with Postgres 11](3.0.0-dev/pg11).
-- [3.0.0.-dev with Postgres 12](3.0.0-dev/pg12).
+- [2.6.1 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.1/).
+- [2.6.1 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.1/).
+- [2.6.2 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.2/).
+- [2.6.2 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.2/).
+- [2.6.3 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.3/).
+- [2.6.3 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.3/).
+- [2.6.3 with Postgres 12 + PostGIS 3.0](12-3.0-2.6.3/).
+- [develop branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/).
+- [develop branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/).
+- [develop branch with Postgres 12 + PostGIS 3.0](12-3.0-develop/).
+
+## Tag roles
+
+`{PostgreSQL major}-{PostGIS major}-{pgRouting version}`
+
+Tag for pgRouting 2.6.3 with PostgreSQL 12 and PostGIS 3.0:
+
+`pgrouting/pgrouting:12-3.0-2.6.3`
 
 ## How to use
 
@@ -29,7 +40,7 @@ There are several versions available:
 
 Run postgres database:
 ```
-$ cd 2.6.3/pg12
+$ cd 12-3.0-2.6.3
 $ docker-compose up
 ```
 
@@ -37,7 +48,7 @@ $ docker-compose up
 
 Run postgres database:
 ```
-$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:v2.6.3-postgresql_12
+$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:12-3.0-2.6.3
 ```
 
 ### Using psql with Docker compose:
@@ -81,6 +92,18 @@ POSTGIS="3.0.0 r17983" [EXTENSION] PGSQL="120" GEOS="3.7.1-CAPI-1.11.1 27a5e771"
 ternal)"
 (1 row)
 ```
+
+## Develop
+
+To make new version for example `2.6.x`, run following:
+
+```
+mkdir 12-3.0-2.6.x
+touch 12-3.0-2.6.x/Dockerfile
+make update
+```
+
+`make update` run `update.sh`, that finds new Dockerfile and generates Dockerfile, docker-compose.yml, README.md, and extra/Dockerfile from template.
 
 ## License
 
