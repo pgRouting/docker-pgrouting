@@ -49,6 +49,9 @@ for version in "${versions[@]}"; do
     (
         set -x
         cp -p -r Dockerfile.template README.md.template docker-compose.yml.template extra "$version/"
+        if [ "$pgroutingVersion" == "develop" ]; then
+          cp -p Dockerfile.develop.template "$version/Dockerfile"
+        fi
         mv "$version/Dockerfile.template" "$version/Dockerfile"
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PGROUTING_SHA256%%/'"$srcSha256"'/g; s/%%BOOST_VERSION%%/'"$boostVersion"'/g; s/%%CDAL_VERSION%%/'"$cdalVersion"'/g; ' "$version/Dockerfile"
         mv "$version/README.md.template" "$version/README.md"
@@ -57,10 +60,6 @@ for version in "${versions[@]}"; do
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g;' "$version/docker-compose.yml"
         mv "$version/extra/Dockerfile.template" "$version/extra/Dockerfile"
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PQXX_VERSION%%/'"$pqxxVersion"'/g;' "$version/extra/Dockerfile"
-        if [ "$pgroutingVersion" == "develop" ]; then
-          cp -p Dockerfile.develop.template "$version/Dockerfile"
-          sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PGROUTING_SHA256%%/'"$srcSha256"'/g; s/%%BOOST_VERSION%%/'"$boostVersion"'/g;' "$version/Dockerfile"
-        fi
     )
 done
 
