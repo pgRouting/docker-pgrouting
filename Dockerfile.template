@@ -8,18 +8,17 @@ ENV PGROUTING_SHA256 %%PGROUTING_SHA256%%
 RUN set -ex \
  && apt update \
  && apt install -y \
-        libboost-atomic1.62.0 \
-        libboost-chrono1.62.0 \
-        libboost-graph1.62.0 \
-        libboost-date-time1.62.0 \
-        libboost-program-options1.62.0 \
-        libboost-system1.62.0 \
-        libboost-thread1.62.0 \
-        libcgal12 \
+        libboost-atomic%%BOOST_VERSION%% \
+        libboost-chrono%%BOOST_VERSION%% \
+        libboost-graph%%BOOST_VERSION%% \
+        libboost-date-time%%BOOST_VERSION%% \
+        libboost-program-options%%BOOST_VERSION%% \
+        libboost-system%%BOOST_VERSION%% \
+        libboost-thread%%BOOST_VERSION%% \
+        libcgal%%CDAL_VERSION%% \
  && apt install -y \
         build-essential \
         cmake \
-        perl \
         wget \
         libboost-graph-dev \
         libcgal-dev \
@@ -42,10 +41,10 @@ RUN set -ex \
  && make install \
  && cd / \
  && rm -rf /usr/src/pgrouting \
+ && apt-mark manual postgresql-%%PG_MAJOR%% \
  && apt purge -y --autoremove \
         build-essential \
         cmake \
-        perl \
         wget \
         libcgal-dev \
         libpq-dev \

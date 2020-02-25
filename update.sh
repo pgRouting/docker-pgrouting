@@ -21,10 +21,6 @@ declare -A debianSuite=(
     [10]='stretch-slim'
     [11]='stretch-slim'
 )
-defaultAlpineVersion='3.11'
-declare -A alpineVersion=(
-    #[9.6]='3.5'
-)
 
 defaultPostgisDebPkgNameVersionSuffix='3'
 declare -A postgisDebPkgNameVersionSuffixes=(
@@ -32,11 +28,21 @@ declare -A postgisDebPkgNameVersionSuffixes=(
     [3.0]='3'
 )
 
-declare -A suitePackageList=() suiteArches=()
 for version in "${versions[@]}"; do
     IFS=- read postgresVersion postgisVersion pgroutingVersion <<< "$version"
 
-    postgisDockerTagVersion="${postgresVersion}-${postgisVersion}"
+    tag="${debianSuite[$postgresVersion]:-$defaultDebianSuite}"
+    suite="${tag%%-slim}"
+    
+    if [ "$suite" = "stretch" ]; then
+      boostVersion="1.62.0"
+      cdalVersion="12"
+      pqxxVersion="4.0v5"
+    else
+      boostVersion="1.67.0"
+      cdalVersion="13"
+      pqxxVersion="6.2"
+    fi
 
     srcVersion="${pgroutingVersion}"
     srcSha256="$(curl -sSL "https://github.com/pgRouting/pgrouting/archive/v${srcVersion}.tar.gz" | sha256sum | awk '{ print $1 }')"
@@ -44,13 +50,17 @@ for version in "${versions[@]}"; do
         set -x
         cp -p -r Dockerfile.template README.md.template docker-compose.yml.template extra "$version/"
         mv "$version/Dockerfile.template" "$version/Dockerfile"
-        sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PGROUTING_SHA256%%/'"$srcSha256"'/g;' "$version/Dockerfile"
+        sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PGROUTING_SHA256%%/'"$srcSha256"'/g; s/%%BOOST_VERSION%%/'"$boostVersion"'/g; s/%%CDAL_VERSION%%/'"$cdalVersion"'/g; ' "$version/Dockerfile"
         mv "$version/README.md.template" "$version/README.md"
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g;' "$version/README.md"
         mv "$version/docker-compose.yml.template" "$version/docker-compose.yml"
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g;' "$version/docker-compose.yml"
         mv "$version/extra/Dockerfile.template" "$version/extra/Dockerfile"
-        sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g;' "$version/extra/Dockerfile"
+        sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PQXX_VERSION%%/'"$pqxxVersion"'/g;' "$version/extra/Dockerfile"
+        if [ "$pgroutingVersion" == "develop" ]; then
+          cp -p Dockerfile.develop.template "$version/Dockerfile"
+          sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PGROUTING_SHA256%%/'"$srcSha256"'/g; s/%%BOOST_VERSION%%/'"$boostVersion"'/g;' "$version/Dockerfile"
+        fi
     )
 done
 
