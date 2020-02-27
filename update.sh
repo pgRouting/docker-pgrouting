@@ -16,8 +16,6 @@ IFS=$'\n'; versions=( $(echo "${versions[*]}" | sort -V) ); unset IFS
 defaultDebianSuite='buster-slim'
 declare -A debianSuite=(
     # https://github.com/docker-library/postgres/issues/582
-    [9.5]='stretch-slim'
-    [9.6]='stretch-slim'
     [10]='stretch-slim'
     [11]='stretch-slim'
 )
@@ -45,7 +43,7 @@ for version in "${versions[@]}"; do
     fi
 
     srcVersion="${pgroutingVersion}"
-    if [ "$pgroutingVersion" == "develop" ]; then
+    if [ "$pgroutingVersion" == "develop" ] || [ "$pgroutingVersion" == "master" ]; then
       srcSha256=""
       pgroutingGitHash="$(git ls-remote https://github.com/pgrouting/pgrouting.git heads/${pgroutingVersion} | awk '{ print $1}')"
     else
@@ -55,7 +53,7 @@ for version in "${versions[@]}"; do
     (
         set -x
         cp -p -r Dockerfile.template README.md.template docker-compose.yml.template extra "$version/"
-        if [ "$pgroutingVersion" == "develop" ]; then
+        if [ "$pgroutingVersion" == "develop" ] || [ "$pgroutingVersion" == "master" ]; then
           cp -p Dockerfile.develop.template "$version/Dockerfile.template"
         fi
         mv "$version/Dockerfile.template" "$version/Dockerfile"
