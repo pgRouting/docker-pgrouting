@@ -16,8 +16,6 @@ IFS=$'\n'; versions=( $(echo "${versions[*]}" | sort -V) ); unset IFS
 defaultDebianSuite='buster-slim'
 declare -A debianSuite=(
     # https://github.com/docker-library/postgres/issues/582
-    [9.5]='stretch-slim'
-    [9.6]='stretch-slim'
     [10]='stretch-slim'
     [11]='stretch-slim'
 )
@@ -45,15 +43,21 @@ for version in "${versions[@]}"; do
     fi
 
     srcVersion="${pgroutingVersion}"
-    srcSha256="$(curl -sSL "https://github.com/pgRouting/pgrouting/archive/v${srcVersion}.tar.gz" | sha256sum | awk '{ print $1 }')"
+    if [ "$pgroutingVersion" == "develop" ] || [ "$pgroutingVersion" == "master" ]; then
+      srcSha256=""
+      pgroutingGitHash="$(git ls-remote https://github.com/pgrouting/pgrouting.git heads/${pgroutingVersion} | awk '{ print $1}')"
+    else
+      srcSha256="$(curl -sSL "https://github.com/pgRouting/pgrouting/archive/v${srcVersion}.tar.gz" | sha256sum | awk '{ print $1 }')"
+      pgroutingGitHash=""
+    fi
     (
         set -x
         cp -p -r Dockerfile.template README.md.template docker-compose.yml.template extra "$version/"
-        if [ "$pgroutingVersion" == "develop" ]; then
+        if [ "$pgroutingVersion" == "develop" ] || [ "$pgroutingVersion" == "master" ]; then
           cp -p Dockerfile.develop.template "$version/Dockerfile.template"
         fi
         mv "$version/Dockerfile.template" "$version/Dockerfile"
-        sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PGROUTING_SHA256%%/'"$srcSha256"'/g; s/%%BOOST_VERSION%%/'"$boostVersion"'/g; s/%%CDAL_VERSION%%/'"$cdalVersion"'/g; ' "$version/Dockerfile"
+        sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PGROUTING_SHA256%%/'"$srcSha256"'/g; s/%%PGROUTING_GIT_HASH%%/'"$pgroutingGitHash"'/g; s/%%BOOST_VERSION%%/'"$boostVersion"'/g; s/%%CDAL_VERSION%%/'"$cdalVersion"'/g; ' "$version/Dockerfile"
         mv "$version/README.md.template" "$version/README.md"
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g;' "$version/README.md"
         mv "$version/docker-compose.yml.template" "$version/docker-compose.yml"

@@ -1,9 +1,9 @@
-FROM postgis/postgis:10-2.5
+FROM postgis/postgis:11-2.5
 
 LABEL maintainer="pgRouting Project - https://pgrouting.net"
 
-ENV PGROUTING_VERSION develop
-ENV PGROUTING_GIT_HASH d93c618ae9c2c57885c8a52287ae226ee7b9a4a4
+ENV PGROUTING_VERSION master
+ENV PGROUTING_GIT_HASH 017483bbe3aae791e4fe702d79fc524077db3147
 
 RUN apt update \
  && apt install -y \

@@ -1,20 +1,20 @@
-FROM postgis/postgis:10-2.5
+FROM postgis/postgis:12-3.0
 
 LABEL maintainer="pgRouting Project - https://pgrouting.net"
 
-ENV PGROUTING_VERSION develop
-ENV PGROUTING_GIT_HASH d93c618ae9c2c57885c8a52287ae226ee7b9a4a4
+ENV PGROUTING_VERSION master
+ENV PGROUTING_GIT_HASH 017483bbe3aae791e4fe702d79fc524077db3147
 
 RUN apt update \
  && apt install -y \
-        libboost-atomic1.62.0 \
-        libboost-chrono1.62.0 \
-        libboost-graph1.62.0 \
-        libboost-date-time1.62.0 \
-        libboost-program-options1.62.0 \
-        libboost-system1.62.0 \
-        libboost-thread1.62.0 \
-        libcgal12 \
+        libboost-atomic1.67.0 \
+        libboost-chrono1.67.0 \
+        libboost-graph1.67.0 \
+        libboost-date-time1.67.0 \
+        libboost-program-options1.67.0 \
+        libboost-system1.67.0 \
+        libboost-thread1.67.0 \
+        libcgal13 \
  && apt install -y \
         build-essential \
         cmake \
