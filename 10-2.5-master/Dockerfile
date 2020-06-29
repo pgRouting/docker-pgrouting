@@ -45,4 +45,4 @@ RUN apt update \
         postgresql-server-dev-${PG_MAJOR} \
         git \
  && rm -rf /var/lib/apt/lists/*
-RUN rm /docker-entrypoint-initdb.d/postgis.sh
+RUN rm /docker-entrypoint-initdb.d/10_postgis.sh

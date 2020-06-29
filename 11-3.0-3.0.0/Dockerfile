@@ -51,4 +51,4 @@ RUN set -ex \
         libboost-graph-dev \
         postgresql-server-dev-${PG_MAJOR} \
  && rm -rf /var/lib/apt/lists/*
-RUN rm /docker-entrypoint-initdb.d/postgis.sh
+RUN rm /docker-entrypoint-initdb.d/10_postgis.sh
