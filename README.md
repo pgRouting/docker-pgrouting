@@ -1,7 +1,7 @@
 # docker-pgrouting
 
-https://img.shields.io/docker/cloud/automated/pgrouting/pgrouting
-https://img.shields.io/docker/cloud/build/pgrouting/pgrouting
+https://img.shields.io/docker/automated/pgrouting/pgrouting
+https://img.shields.io/docker/pulls/pgrouting/pgrouting
 
 
 pgRouting Docker images.
