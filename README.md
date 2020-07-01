@@ -1,7 +1,7 @@
 # docker-pgrouting
 
-https://img.shields.io/docker/automated/pgrouting/pgrouting
-https://img.shields.io/docker/pulls/pgrouting/pgrouting
+![Docker status](https://img.shields.io/docker/automated/pgrouting/pgrouting)
+![Docker builds](https://img.shields.io/docker/pulls/pgrouting/pgrouting)
 
 
 pgRouting Docker images.
