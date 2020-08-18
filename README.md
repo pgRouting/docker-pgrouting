@@ -72,8 +72,10 @@ Example:
 
 ```
 $ docker-compose exec postgis psql -h localhost -U postgres
-psql (12.0)
+psql (12.3 (Debian 12.3-1.pgdg100+1))
 Type "help" for help.
+
+postgres=#
 
 postgres@localhost ~>create database test;
 CREATE DATABASE
@@ -89,22 +91,20 @@ CREATE EXTENSION
 postgres@localhost test>select version();
                                                version                                                
 ------------------------------------------------------------------------------------------------------
- PostgreSQL 12.0 (Debian 12.0-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+ PostgreSQL 12.3 (Debian 12.3-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
 (1 row)
 
 postgres@localhost test>select pgr_version();
                 pgr_version                
 -------------------------------------------
-(2.6.3,v2.6.3,b14f4d56b,master,1.67.0)
+3.1.0
 (1 row)
 
 postgres@localhost test>select postgis_full_version();
-                                                                                                    postgis_full_version                                                                      
-
+                        postgis_full_version                                                                      
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------
-POSTGIS="3.0.0 r17983" [EXTENSION] PGSQL="120" GEOS="3.7.1-CAPI-1.11.1 27a5e771" PROJ="Rel. 5.2.0, September 15th, 2018" LIBXML="2.9.4" LIBJSON="0.12.1" LIBPROTOBUF="1.3.1" WAGYU="0.4.3 (In
-ternal)"
+POSTGIS="3.0.1 ec2a9aa" [EXTENSION] PGSQL="120" GEOS="3.7.1-CAPI-1.11.1 27a5e771" PROJ="Rel. 5.2.0, September 15th, 2018" LIBXML="2.9.4" LIBJSON="0.12.1" LIBPROTOBUF="1.3.1" WAGYU="0.4.3 (Internal)"
 (1 row)
 ```
 
