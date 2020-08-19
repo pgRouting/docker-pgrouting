@@ -3,7 +3,7 @@ FROM postgis/postgis:10-2.5
 LABEL maintainer="pgRouting Project - https://pgrouting.net"
 
 ENV PGROUTING_VERSION develop
-ENV PGROUTING_GIT_HASH ba032a4a4442e0e805b237bc960e4ae25d70f6bd
+ENV PGROUTING_GIT_HASH 71137a4f53b132b12cb9efa96ef4f26cc051a3b3
 
 RUN apt update \
  && apt install -y \
