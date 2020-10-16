@@ -12,6 +12,7 @@ pgRouting Docker images.
 - [Versions](#versions)
 - [Tag roles](#tag-roles)
 - [How to use](#how-to-use)
+- [How to build images](#how-to-build-images)
 - [Develop](#develop)
 - [License](#license)
 - [Links](#links)
@@ -20,28 +21,34 @@ pgRouting Docker images.
 
 There are several versions available:
 
-- [2.6.1 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.1`
-- [2.6.1 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.1`
-- [2.6.2 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.2/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.2`
-- [2.6.2 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.2/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.2`
-- [2.6.3 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.3/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.3`
-- [2.6.3 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.3/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.3`
-- [2.6.3 with Postgres 12 + PostGIS 3.0](12-3.0-2.6.3/). Docker image: `pgrouting/pgrouting:12-3.0-2.6.3`
-- [3.0.0 with Postgres 11 + PostGIS 3.0](11-3.0-3.0.0/). Docker image: `pgrouting/pgrouting:11-3.0-3.0.0`
-- [3.0.0 with Postgres 12 + PostGIS 3.0](12-3.0-3.0.0/). Docker image: `pgrouting/pgrouting:12-3.0-3.0.0`
-- [3.0.1 with Postgres 11 + PostGIS 3.0](11-3.0-3.0.1/). Docker image: `pgrouting/pgrouting:11-3.0-3.0.1`
-- [3.0.1 with Postgres 12 + PostGIS 3.0](12-3.0-3.0.1/). Docker image: `pgrouting/pgrouting:12-3.0-3.0.1`
-- [3.1.0 with Postgres 11 + PostGIS 3.0](11-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:11-3.0-3.1.0`
-- [3.1.0 with Postgres 12 + PostGIS 3.0](12-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:12-3.0-3.1.0`
-- [3.1.0 with Postgres 13 + PostGIS 3.0](13-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:13-3.0-3.1.0`
-- [master branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/). Docker image: `pgrouting/pgrouting:10-2.5-master`
-- [master branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-master`
-- [master branch with Postgres 12 + PostGIS 3.0](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-master`
-- [master branch with Postgres 13 + PostGIS 3.0](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-master`
-- [develop branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/). Docker image: `pgrouting/pgrouting:10-2.5-develop`
-- [develop branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-develop`
-- [develop branch with Postgres 12 + PostGIS 3.0](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-develop`
-- [develop branch with Postgres 13 + PostGIS 3.0](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-develop`
+- With pgRouting v3:
+  - [3.1.0 with Postgres 13 + PostGIS 3.0](13-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:13-3.0-3.1.0`
+  - [3.1.0 with Postgres 12 + PostGIS 3.0](12-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:12-3.0-3.1.0`
+  - [3.1.0 with Postgres 11 + PostGIS 3.0](11-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:11-3.0-3.1.0`
+  - [3.0.1 with Postgres 12 + PostGIS 3.0](12-3.0-3.0.1/). Docker image: `pgrouting/pgrouting:12-3.0-3.0.1`
+  - [3.0.1 with Postgres 11 + PostGIS 3.0](11-3.0-3.0.1/). Docker image: `pgrouting/pgrouting:11-3.0-3.0.1`
+  - [3.0.0 with Postgres 12 + PostGIS 3.0](12-3.0-3.0.0/). Docker image: `pgrouting/pgrouting:12-3.0-3.0.0`
+  - [3.0.0 with Postgres 11 + PostGIS 3.0](11-3.0-3.0.0/). Docker image: `pgrouting/pgrouting:11-3.0-3.0.0`
+- With pgRouting v2:
+  - [2.6.3 with Postgres 12 + PostGIS 3.0](12-3.0-2.6.3/). Docker image: `pgrouting/pgrouting:12-3.0-2.6.3`
+  - [2.6.3 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.3/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.3`
+  - [2.6.3 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.3/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.3`
+  - [2.6.2 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.2/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.2`
+  - [2.6.2 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.2/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.2`
+  - [2.6.1 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.1`
+  - [2.6.1 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.1`
+- With pgRouting master branch (*):
+  - [master branch with Postgres 13 + PostGIS 3.0](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-master`
+  - [master branch with Postgres 12 + PostGIS 3.0](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-master`
+  - [master branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-master`
+  - [master branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/). Docker image: `pgrouting/pgrouting:10-2.5-master`
+- With pgRouting develop branch (*):
+  - [develop branch with Postgres 13 + PostGIS 3.0](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-develop`
+  - [develop branch with Postgres 12 + PostGIS 3.0](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-develop`
+  - [develop branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-develop`
+  - [develop branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/). Docker image: `pgrouting/pgrouting:10-2.5-develop`
+
+(*) If you want to use the last versions of develop or master branches you should consider to build the image by your own. See [here](#how-to-build-images) how to build images:
 
 ## Tag roles
 
@@ -53,7 +60,7 @@ Tag for pgRouting 2.6.3 with PostgreSQL 12 and PostGIS 3.0:
 
 ## How to use
 
-### Using with Docker compose
+### Running pgRouting with Docker compose
 
 Run postgres database:
 ```
@@ -61,12 +68,20 @@ $ cd 12-3.0-2.6.3
 $ docker-compose up
 ```
 
-### Without compose
+### Running pgRouting without Docker compose
 
 Run postgres database:
 ```
 $ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:12-3.0-2.6.3
 ```
+
+## How to build images
+
+Building images:
+```
+$ docker build -t pgrouting/pgrouting:13-3.0-master .
+```
+
 
 ### Using psql with Docker compose:
 
