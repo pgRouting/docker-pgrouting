@@ -22,6 +22,9 @@ pgRouting Docker images.
 There are several versions available:
 
 - With pgRouting v3:
+  - [3.1.1 with Postgres 13 + PostGIS 3.0](13-3.0-3.1.1/). Docker image: `pgrouting/pgrouting:13-3.0-3.1.1`
+  - [3.1.1 with Postgres 12 + PostGIS 3.0](12-3.0-3.1.1/). Docker image: `pgrouting/pgrouting:12-3.0-3.1.1`
+  - [3.1.1 with Postgres 11 + PostGIS 3.0](11-3.0-3.1.1/). Docker image: `pgrouting/pgrouting:11-3.0-3.1.1`
   - [3.1.0 with Postgres 13 + PostGIS 3.0](13-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:13-3.0-3.1.0`
   - [3.1.0 with Postgres 12 + PostGIS 3.0](12-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:12-3.0-3.1.0`
   - [3.1.0 with Postgres 11 + PostGIS 3.0](11-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:11-3.0-3.1.0`
