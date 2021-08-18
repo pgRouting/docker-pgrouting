@@ -1,11 +1,12 @@
-FROM postgis/postgis:13-3.0
+FROM postgis/postgis:13-3.1
 
 LABEL maintainer="pgRouting Project - https://pgrouting.net"
 
-ENV PGROUTING_VERSION develop
-ENV PGROUTING_GIT_HASH fb48e16f2d3c0f11060d58fc8be36e9325db2f59
+ENV PGROUTING_VERSION 3.2.1
+ENV PGROUTING_SHA256 daeb7ba8703dde9b6cc84129eab64a0f2e1f819f00b9a9168a197c150583a5fd
 
-RUN apt update \
+RUN set -ex \
+ && apt update \
  && apt install -y \
         libboost-atomic1.67.0 \
         libboost-chrono1.67.0 \
@@ -18,17 +19,21 @@ RUN apt update \
  && apt install -y \
         build-essential \
         cmake \
+        wget \
         libboost-graph-dev \
         libcgal-dev \
         libpq-dev \
         postgresql-server-dev-${PG_MAJOR} \
-        git \
+ && wget -O pgrouting.tar.gz "https://github.com/pgRouting/pgrouting/archive/v${PGROUTING_VERSION}.tar.gz" \
+ && echo "$PGROUTING_SHA256 *pgrouting.tar.gz" | sha256sum -c - \
  && mkdir -p /usr/src/pgrouting \
+ && tar \
+        --extract \
+        --file pgrouting.tar.gz \
+        --directory /usr/src/pgrouting \
+        --strip-components 1 \
+ && rm pgrouting.tar.gz \
  && cd /usr/src/pgrouting \
- && git init \
- && git remote add origin https://github.com/pgRouting/pgrouting.git \
- && git fetch --depth 1 origin :${PGROUTING_GIT_HASH} \
- && git reset --hard FETCH_HEAD \
  && mkdir build \
  && cd build \
  && cmake .. \
@@ -36,13 +41,14 @@ RUN apt update \
  && make install \
  && cd / \
  && rm -rf /usr/src/pgrouting \
+ && apt-mark manual postgresql-13 \
  && apt purge -y --autoremove \
         build-essential \
         cmake \
+        wget \
         libcgal-dev \
         libpq-dev \
         libboost-graph-dev \
         postgresql-server-dev-${PG_MAJOR} \
-        git \
  && rm -rf /var/lib/apt/lists/*
 RUN rm /docker-entrypoint-initdb.d/10_postgis.sh
