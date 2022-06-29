@@ -1,6 +1,6 @@
 FROM pgrouting/pgrouting:11-2.5-2.6.2
 
-ENV OSM2PGROUTING_VERSION 2.3.7
+ENV OSM2PGROUTING_VERSION 2.3.8
 
 RUN apt update \
  && apt install -y \
