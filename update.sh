@@ -1,5 +1,5 @@
 #!/bin/bash
-# Derived from https://github.com/docker-library/postgres/blob/main/update.sh
+# Derived from https://github.com/docker-library/postgres/blob/master/update.sh
 set -Eeuo pipefail
 
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
