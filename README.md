@@ -22,12 +22,24 @@ pgRouting Docker images.
 There are several versions available:
 
 - With pgRouting v3:
+  - [3.3.2 with Postgres 14 + PostGIS 3.2](14-3.2-3.3.2/). Docker image: `pgrouting/pgrouting:14-3.2-3.3.2`
+  - [3.3.2 with Postgres 13 + PostGIS 3.2](13-3.2-3.3.2/). Docker image: `pgrouting/pgrouting:13-3.2-3.3.2`
+  - [3.3.2 with Postgres 12 + PostGIS 3.2](12-3.2-3.3.2/). Docker image: `pgrouting/pgrouting:12-3.2-3.3.2`
+  - [3.3.2 with Postgres 11 + PostGIS 3.2](11-3.2-3.3.2/). Docker image: `pgrouting/pgrouting:11-3.2-3.3.2`
+  - [3.2.2 with Postgres 14 + PostGIS 3.2](14-3.2-3.2.2/). Docker image: `pgrouting/pgrouting:14-3.2-3.2.2`
+  - [3.2.2 with Postgres 13 + PostGIS 3.2](13-3.2-3.2.2/). Docker image: `pgrouting/pgrouting:13-3.2-3.2.2`
+  - [3.2.2 with Postgres 12 + PostGIS 3.2](12-3.2-3.2.2/). Docker image: `pgrouting/pgrouting:12-3.2-3.2.2`
+  - [3.2.2 with Postgres 11 + PostGIS 3.2](11-3.2-3.2.2/). Docker image: `pgrouting/pgrouting:11-3.2-3.2.2`
   - [3.2.1 with Postgres 13 + PostGIS 3.1](13-3.1-3.2.1/). Docker image: `pgrouting/pgrouting:13-3.1-3.2.1`
   - [3.2.1 with Postgres 12 + PostGIS 3.1](12-3.1-3.2.1/). Docker image: `pgrouting/pgrouting:12-3.1-3.2.1`
   - [3.2.1 with Postgres 11 + PostGIS 3.1](11-3.1-3.2.1/). Docker image: `pgrouting/pgrouting:11-3.1-3.2.1`
   - [3.2.0 with Postgres 13 + PostGIS 3.1](13-3.1-3.2.0/). Docker image: `pgrouting/pgrouting:13-3.1-3.2.0`
   - [3.2.0 with Postgres 12 + PostGIS 3.1](12-3.1-3.2.0/). Docker image: `pgrouting/pgrouting:12-3.1-3.2.0`
   - [3.2.0 with Postgres 11 + PostGIS 3.1](11-3.1-3.2.0/). Docker image: `pgrouting/pgrouting:11-3.1-3.2.0`
+  - [3.1.4 with Postgres 14 + PostGIS 3.2](14-3.2-3.1.4/). Docker image: `pgrouting/pgrouting:14-3.2-3.1.4`
+  - [3.1.4 with Postgres 13 + PostGIS 3.2](13-3.2-3.1.4/). Docker image: `pgrouting/pgrouting:13-3.2-3.1.4`
+  - [3.1.4 with Postgres 12 + PostGIS 3.2](12-3.2-3.1.4/). Docker image: `pgrouting/pgrouting:12-3.2-3.1.4`
+  - [3.1.4 with Postgres 11 + PostGIS 3.2](11-3.2-3.1.4/). Docker image: `pgrouting/pgrouting:11-3.2-3.1.4`
   - [3.1.3 with Postgres 13 + PostGIS 3.1](13-3.1-3.1.3/). Docker image: `pgrouting/pgrouting:13-3.1-3.1.3`
   - [3.1.3 with Postgres 12 + PostGIS 3.1](12-3.1-3.1.3/). Docker image: `pgrouting/pgrouting:12-3.1-3.1.3`
   - [3.1.3 with Postgres 11 + PostGIS 3.1](11-3.1-3.1.3/). Docker image: `pgrouting/pgrouting:11-3.1-3.1.3`
@@ -37,6 +49,10 @@ There are several versions available:
   - [3.1.0 with Postgres 13 + PostGIS 3.0](13-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:13-3.0-3.1.0`
   - [3.1.0 with Postgres 12 + PostGIS 3.0](12-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:12-3.0-3.1.0`
   - [3.1.0 with Postgres 11 + PostGIS 3.0](11-3.0-3.1.0/). Docker image: `pgrouting/pgrouting:11-3.0-3.1.0`
+  - [3.0.6 with Postgres 14 + PostGIS 3.2](14-3.2-3.0.6/). Docker image: `pgrouting/pgrouting:14-3.2-3.0.6`
+  - [3.0.6 with Postgres 13 + PostGIS 3.2](13-3.2-3.0.6/). Docker image: `pgrouting/pgrouting:13-3.2-3.0.6`
+  - [3.0.6 with Postgres 12 + PostGIS 3.2](12-3.2-3.0.6/). Docker image: `pgrouting/pgrouting:12-3.2-3.0.6`
+  - [3.0.6 with Postgres 11 + PostGIS 3.2](11-3.2-3.0.6/). Docker image: `pgrouting/pgrouting:11-3.2-3.0.6`
   - [3.0.1 with Postgres 12 + PostGIS 3.0](12-3.0-3.0.1/). Docker image: `pgrouting/pgrouting:12-3.0-3.0.1`
   - [3.0.1 with Postgres 11 + PostGIS 3.0](11-3.0-3.0.1/). Docker image: `pgrouting/pgrouting:11-3.0-3.0.1`
   - [3.0.0 with Postgres 12 + PostGIS 3.0](12-3.0-3.0.0/). Docker image: `pgrouting/pgrouting:12-3.0-3.0.0`
@@ -50,11 +66,13 @@ There are several versions available:
   - [2.6.1 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.1`
   - [2.6.1 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.1`
 - With pgRouting main branch (*):
-  - [main branch with Postgres 13 + PostGIS 3.1](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-main`
-  - [main branch with Postgres 12 + PostGIS 3.1](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-main`
-  - [main branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-main`
-  - [main branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/). Docker image: `pgrouting/pgrouting:10-2.5-main`
+  - [main branch with Postgres 14 + PostGIS 3.2](14-3.2-main/). Docker image: `pgrouting/pgrouting:14-3.2-main`
+  - [main branch with Postgres 13 + PostGIS 3.0](13-3.0-main/). Docker image: `pgrouting/pgrouting:13-3.0-main`
+  - [main branch with Postgres 12 + PostGIS 3.0](12-3.0-main/). Docker image: `pgrouting/pgrouting:12-3.0-main`
+  - [main branch with Postgres 11 + PostGIS 2.5](11-2.5-main/). Docker image: `pgrouting/pgrouting:11-2.5-main`
+  - [main branch with Postgres 10 + PostGIS 2.5](10-2.5-main/). Docker image: `pgrouting/pgrouting:10-2.5-main`
 - With pgRouting develop branch (*):
+  - [develop branch with Postgres 14 + PostGIS 3.2](14-3.2-develop/). Docker image: `pgrouting/pgrouting:14-3.2-develop`
   - [develop branch with Postgres 13 + PostGIS 3.0](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-develop`
   - [develop branch with Postgres 12 + PostGIS 3.0](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-develop`
   - [develop branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-develop`
