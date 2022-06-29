@@ -49,18 +49,18 @@ There are several versions available:
   - [2.6.2 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.2/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.2`
   - [2.6.1 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.1`
   - [2.6.1 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.1`
-- With pgRouting master branch (*):
-  - [master branch with Postgres 13 + PostGIS 3.1](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-master`
-  - [master branch with Postgres 12 + PostGIS 3.1](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-master`
-  - [master branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-master`
-  - [master branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/). Docker image: `pgrouting/pgrouting:10-2.5-master`
+- With pgRouting main branch (*):
+  - [main branch with Postgres 13 + PostGIS 3.1](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-main`
+  - [main branch with Postgres 12 + PostGIS 3.1](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-main`
+  - [main branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-main`
+  - [main branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/). Docker image: `pgrouting/pgrouting:10-2.5-main`
 - With pgRouting develop branch (*):
   - [develop branch with Postgres 13 + PostGIS 3.0](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-develop`
   - [develop branch with Postgres 12 + PostGIS 3.0](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-develop`
   - [develop branch with Postgres 11 + PostGIS 2.5](11-2.5-develop/). Docker image: `pgrouting/pgrouting:11-2.5-develop`
   - [develop branch with Postgres 10 + PostGIS 2.5](10-2.5-develop/). Docker image: `pgrouting/pgrouting:10-2.5-develop`
 
-(*) If you want to use the last versions of develop or master branches you should consider to build the image by your own. See [here](#how-to-build-images) how to build images:
+(*) If you want to use the last versions of develop or main branches you should consider to build the image by your own. See [here](#how-to-build-images) how to build images:
 
 ## Tag roles
 
@@ -91,7 +91,7 @@ $ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:12-3.0-2.6.3
 
 Building images:
 ```
-$ docker build -t pgrouting/pgrouting:13-3.0-master .
+$ docker build -t pgrouting/pgrouting:13-3.0-main .
 ```
 
 
@@ -111,26 +111,26 @@ CREATE DATABASE
 
 postgres@localhost ~>\c test
 You are now connected to database "test" as user "postgres".
-postgres@localhost test>create extension postgis;                                          
+postgres@localhost test>create extension postgis;
 CREATE EXTENSION
 
 postgres@localhost test>create extension pgrouting ;
 CREATE EXTENSION
 
 postgres@localhost test>select version();
-                                               version                                                
+                                               version
 ------------------------------------------------------------------------------------------------------
  PostgreSQL 12.3 (Debian 12.3-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
 (1 row)
 
 postgres@localhost test>select pgr_version();
-                pgr_version                
+                pgr_version
 -------------------------------------------
 3.1.0
 (1 row)
 
 postgres@localhost test>select postgis_full_version();
-                        postgis_full_version                                                                      
+                        postgis_full_version
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------
 POSTGIS="3.0.1 ec2a9aa" [EXTENSION] PGSQL="120" GEOS="3.7.1-CAPI-1.11.1 27a5e771" PROJ="Rel. 5.2.0, September 15th, 2018" LIBXML="2.9.4" LIBJSON="0.12.1" LIBPROTOBUF="1.3.1" WAGYU="0.4.3 (Internal)"

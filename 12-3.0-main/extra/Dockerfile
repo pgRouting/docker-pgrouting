@@ -1,4 +1,4 @@
-FROM pgrouting/pgrouting:12-3.0-master
+FROM pgrouting/pgrouting:12-3.0-main
 
 ENV OSM2PGROUTING_VERSION 2.3.8
 

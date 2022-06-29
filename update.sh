@@ -1,5 +1,5 @@
 #!/bin/bash
-# Derived from https://github.com/docker-library/postgres/blob/master/update.sh
+# Derived from https://github.com/docker-library/postgres/blob/main/update.sh
 set -Eeuo pipefail
 
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
@@ -31,7 +31,7 @@ for version in "${versions[@]}"; do
 
     tag="${debianSuite[$postgresVersion]:-$defaultDebianSuite}"
     suite="${tag%%-slim}"
-    
+
     if [ "$suite" = "stretch" ]; then
       boostVersion="1.62.0"
       cdalVersion="12"
@@ -43,7 +43,7 @@ for version in "${versions[@]}"; do
     fi
 
     srcVersion="${pgroutingVersion}"
-    if [ "$pgroutingVersion" == "develop" ] || [ "$pgroutingVersion" == "master" ]; then
+    if [ "$pgroutingVersion" == "develop" ] || [ "$pgroutingVersion" == "main" ]; then
       srcSha256=""
       pgroutingGitHash="$(git ls-remote https://github.com/pgrouting/pgrouting.git heads/${pgroutingVersion} | awk '{ print $1}')"
     else
@@ -53,7 +53,7 @@ for version in "${versions[@]}"; do
     (
         set -x
         cp -p -r Dockerfile.template README.md.template docker-compose.yml.template extra "$version/"
-        if [ "$pgroutingVersion" == "develop" ] || [ "$pgroutingVersion" == "master" ]; then
+        if [ "$pgroutingVersion" == "develop" ] || [ "$pgroutingVersion" == "main" ]; then
           cp -p Dockerfile.develop.template "$version/Dockerfile.template"
         fi
         mv "$version/Dockerfile.template" "$version/Dockerfile"

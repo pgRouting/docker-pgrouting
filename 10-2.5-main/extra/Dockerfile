@@ -1,10 +1,10 @@
-FROM pgrouting/pgrouting:13-3.0-master
+FROM pgrouting/pgrouting:10-2.5-main
 
 ENV OSM2PGROUTING_VERSION 2.3.8
 
 RUN apt update \
  && apt install -y \
-        libpqxx-6.2 \
+        libpqxx-4.0v5 \
  && apt install -y \
         build-essential \
         cmake \
