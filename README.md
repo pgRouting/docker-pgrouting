@@ -43,14 +43,6 @@ There are several versions available:
   - [3.0.1 with Postgres 11 + PostGIS 3.0](11-3.0-3.0.1/). Docker image: `pgrouting/pgrouting:11-3.0-3.0.1`
   - [3.0.0 with Postgres 12 + PostGIS 3.0](12-3.0-3.0.0/). Docker image: `pgrouting/pgrouting:12-3.0-3.0.0`
   - [3.0.0 with Postgres 11 + PostGIS 3.0](11-3.0-3.0.0/). Docker image: `pgrouting/pgrouting:11-3.0-3.0.0`
-- With pgRouting v2:
-  - [2.6.3 with Postgres 12 + PostGIS 3.0](12-3.0-2.6.3/). Docker image: `pgrouting/pgrouting:12-3.0-2.6.3`
-  - [2.6.3 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.3/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.3`
-  - [2.6.3 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.3/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.3`
-  - [2.6.2 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.2/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.2`
-  - [2.6.2 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.2/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.2`
-  - [2.6.1 with Postgres 11 + PostGIS 2.5](11-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:11-2.5-2.6.1`
-  - [2.6.1 with Postgres 10 + PostGIS 2.5](10-2.5-2.6.1/). Docker image: `pgrouting/pgrouting:10-2.5-2.6.1`
 - With pgRouting master branch (*):
   - [master branch with Postgres 13 + PostGIS 3.1](13-3.0-develop/). Docker image: `pgrouting/pgrouting:13-3.0-master`
   - [master branch with Postgres 12 + PostGIS 3.1](12-3.0-develop/). Docker image: `pgrouting/pgrouting:12-3.0-master`
@@ -68,9 +60,9 @@ There are several versions available:
 
 `{PostgreSQL major}-{PostGIS major}-{pgRouting version}`
 
-Tag for pgRouting 2.6.3 with PostgreSQL 12 and PostGIS 3.0:
+Tag for pgRouting 3.2.0 with PostgreSQL 13 and PostGIS 3.1:
 
-`pgrouting/pgrouting:12-3.0-2.6.3`
+`pgrouting/pgrouting:13-3.1-3.2.0`
 
 ## How to use
 
@@ -78,7 +70,7 @@ Tag for pgRouting 2.6.3 with PostgreSQL 12 and PostGIS 3.0:
 
 Run postgres database:
 ```
-$ cd 12-3.0-2.6.3
+$ cd 13-3.1-3.2.0
 $ docker-compose up
 ```
 
@@ -86,7 +78,7 @@ $ docker-compose up
 
 Run postgres database:
 ```
-$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:12-3.0-2.6.3
+$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:13-3.1-3.2.0
 ```
 
 ## How to build images
@@ -102,41 +94,36 @@ $ docker build -t pgrouting/pgrouting:13-3.0-master .
 Example:
 
 ```
-$ docker-compose exec postgis psql -h localhost -U postgres
-psql (12.3 (Debian 12.3-1.pgdg100+1))
+psql (13.3 (Debian 13.3-1.pgdg100+1))
 Type "help" for help.
 
-postgres=#
-
-postgres@localhost ~>create database test;
+postgres=# create database test;
 CREATE DATABASE
-
-postgres@localhost ~>\c test
+postgres=# \c test
 You are now connected to database "test" as user "postgres".
-postgres@localhost test>create extension postgis;                                          
+test=# create extension postgis;
 CREATE EXTENSION
-
-postgres@localhost test>create extension pgrouting ;
+test=# create extension pgrouting;
 CREATE EXTENSION
-
-postgres@localhost test>select version();
-                                               version                                                
-------------------------------------------------------------------------------------------------------
- PostgreSQL 12.3 (Debian 12.3-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+test=# select version();
+                                                     version                                                      
+------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 13.3 (Debian 13.3-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
 (1 row)
 
-postgres@localhost test>select pgr_version();
-                pgr_version                
--------------------------------------------
-3.1.0
+test=# select pgr_version();
+ pgr_version 
+-------------
+ 3.2.0
 (1 row)
 
-postgres@localhost test>select postgis_full_version();
-                        postgis_full_version                                                                      
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------
-POSTGIS="3.0.1 ec2a9aa" [EXTENSION] PGSQL="120" GEOS="3.7.1-CAPI-1.11.1 27a5e771" PROJ="Rel. 5.2.0, September 15th, 2018" LIBXML="2.9.4" LIBJSON="0.12.1" LIBPROTOBUF="1.3.1" WAGYU="0.4.3 (Internal)"
+test=# select postgis_full_version();
+                                                                                          postgis_full_version                                                                                          
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ POSTGIS="3.1.2 cbe925d" [EXTENSION] PGSQL="130" GEOS="3.7.1-CAPI-1.11.1 27a5e771" PROJ="Rel. 5.2.0, September 15th, 2018" LIBXML="2.9.4" LIBJSON="0.12.1" LIBPROTOBUF="1.3.1" WAGYU="0.5.0 (Internal)"
 (1 row)
+
+test=# 
 ```
 
 ## Develop
@@ -144,8 +131,8 @@ POSTGIS="3.0.1 ec2a9aa" [EXTENSION] PGSQL="120" GEOS="3.7.1-CAPI-1.11.1 27a5e771
 To make new version for example `x.x.x`, run following:
 
 ```
-mkdir 12-3.0-x.x.x
-touch 12-3.0-x.x.x/Dockerfile
+mkdir 13-3.1-x.x.x
+touch 13-3.1-x.x.x/Dockerfile
 make update
 ```
 
