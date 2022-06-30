@@ -7,6 +7,8 @@
 
 pgRouting Docker images.
 
+**Note**: The outdated docker images folders for the unsupported pgRouting versions are removed, but they can be retrieved from the Git history, if needed by someone.
+
 ## Contents
 - [Contents](#contents)
 - [Versions](#versions)
