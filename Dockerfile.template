@@ -15,13 +15,11 @@ RUN set -ex \
         libboost-program-options%%BOOST_VERSION%% \
         libboost-system%%BOOST_VERSION%% \
         libboost-thread%%BOOST_VERSION%% \
-        libcgal%%CDAL_VERSION%% \
  && apt install -y \
         build-essential \
         cmake \
         wget \
         libboost-graph-dev \
-        libcgal-dev \
         libpq-dev \
         postgresql-server-dev-${PG_MAJOR} \
  && wget -O pgrouting.tar.gz "https://github.com/pgRouting/pgrouting/archive/v${PGROUTING_VERSION}.tar.gz" \
@@ -46,7 +44,6 @@ RUN set -ex \
         build-essential \
         cmake \
         wget \
-        libcgal-dev \
         libpq-dev \
         libboost-graph-dev \
         postgresql-server-dev-${PG_MAJOR} \

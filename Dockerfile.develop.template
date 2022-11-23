@@ -14,12 +14,10 @@ RUN apt update \
         libboost-program-options%%BOOST_VERSION%% \
         libboost-system%%BOOST_VERSION%% \
         libboost-thread%%BOOST_VERSION%% \
-        libcgal%%CDAL_VERSION%% \
  && apt install -y \
         build-essential \
         cmake \
         libboost-graph-dev \
-        libcgal-dev \
         libpq-dev \
         postgresql-server-dev-${PG_MAJOR} \
         git \
@@ -39,7 +37,6 @@ RUN apt update \
  && apt purge -y --autoremove \
         build-essential \
         cmake \
-        libcgal-dev \
         libpq-dev \
         libboost-graph-dev \
         postgresql-server-dev-${PG_MAJOR} \
