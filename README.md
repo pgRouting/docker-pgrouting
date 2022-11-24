@@ -58,11 +58,11 @@ There are several versions available:
 
 ## Tag roles
 
-`{PostgreSQL major}-{PostGIS major}-{pgRouting version}`
+`{PostgreSQL major}-{PostGIS major/minor}-{pgRouting version}`
 
-Tag for pgRouting 3.2.0 with PostgreSQL 13 and PostGIS 3.1:
+Tag for pgRouting 3.4.1 with PostgreSQL 15 and PostGIS 3.3:
 
-`pgrouting/pgrouting:13-3.1-3.2.0`
+`pgrouting/pgrouting:15-3.3-3.4.1`
 
 ## How to use
 
@@ -70,7 +70,7 @@ Tag for pgRouting 3.2.0 with PostgreSQL 13 and PostGIS 3.1:
 
 Run postgres database:
 ```
-$ cd 13-3.1-3.2.0
+$ cd 15-3.3-3.4
 $ docker-compose up
 ```
 
@@ -78,7 +78,7 @@ $ docker-compose up
 
 Run postgres database:
 ```
-$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:13-3.1-3.2.0
+$ docker run --name pgrouting -p 5432:5432 pgrouting/pgrouting:15-3.3-3.4.1
 ```
 
 ## How to build images
@@ -128,11 +128,11 @@ test=#
 
 ## Develop
 
-To make new version for example `x.x.x`, run following:
+To make new version for example `x.x`, run following:
 
 ```
-mkdir 13-3.1-x.x.x
-touch 13-3.1-x.x.x/Dockerfile
+mkdir 15-3.3-x.x
+touch 15-3.3-x.x/Dockerfile
 make update
 ```
 
