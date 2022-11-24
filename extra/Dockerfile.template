@@ -36,6 +36,7 @@ RUN apt update \
         build-essential \
         cmake \
         wget \
+        libboost-program-options-dev \
         libexpat-dev \
         libosmium2-dev \
         libpqxx-dev \
