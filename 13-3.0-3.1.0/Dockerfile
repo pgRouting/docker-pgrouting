@@ -1,6 +1,6 @@
 FROM postgis/postgis:13-3.0
 
-LABEL maintainer="pgRouting Project - https://pgrouting.net"
+LABEL maintainer="pgRouting Project - https://pgrouting.org"
 
 ENV PGROUTING_VERSION 3.1.0
 ENV PGROUTING_SHA256 0471970338e38730092b39c8e87fde83e3100c471d856de24111005f6a91d481

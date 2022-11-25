@@ -1,6 +1,6 @@
 FROM postgis/postgis:%%PG_MAJOR%%-%%POSTGIS_VERSION%%
 
-LABEL maintainer="pgRouting Project - https://pgrouting.net"
+LABEL maintainer="pgRouting Project - https://pgrouting.org"
 
 ENV PGROUTING_VERSION %%PGROUTING_VERSION%%
 
