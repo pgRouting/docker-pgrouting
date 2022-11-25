@@ -71,7 +71,8 @@ $ docker-compose up
 
 Run postgres database:
 ```sh
-$ docker run --name pgrouting -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d pgrouting/pgrouting:15-3.3-3.4.1
+$ cd 15-3.3-3.4
+$ docker run --name pgrouting -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d pgrouting/pgrouting:$(cat version.txt)
 ```
 
 ## How to build images
@@ -79,9 +80,8 @@ $ docker run --name pgrouting -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d pgro
 Building images:
 ```sh
 $ cd 15-3.3-3.4
-$ docker build -t pgrouting/pgrouting:15-3.3-3.4.1 .
+$ docker build -t pgrouting/pgrouting:$(cat version.txt) .
 ```
-(Check pgrouting full version from `./15-3.3-3.4/README.md`.)
 
 ### Using psql with Docker compose:
 

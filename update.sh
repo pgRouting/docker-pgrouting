@@ -95,6 +95,7 @@ for version in "${versions[@]}"; do
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g;' "$version/docker-compose.yml"
         mv "$version/extra/Dockerfile.template" "$version/extra/Dockerfile"
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PQXX_VERSION%%/'"$pqxxVersion"'/g;' "$version/extra/Dockerfile"
+        echo "$postgresVersion-$postgisVersion-$pgroutingVersion" > "$version/version.txt"
     )
 done
 
