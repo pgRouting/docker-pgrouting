@@ -1,6 +1,6 @@
 FROM postgis/postgis:11-3.3
 
-LABEL maintainer="pgRouting Project - https://pgrouting.net"
+LABEL maintainer="pgRouting Project - https://pgrouting.org"
 
 ENV PGROUTING_VERSION develop
 ENV PGROUTING_GIT_HASH 1988511aef930cf65a36b0bcb0e4223bee4c2420
