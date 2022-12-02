@@ -1,10 +1,10 @@
-FROM pgrouting/pgrouting:%%PG_MAJOR%%-%%POSTGIS_VERSION%%-%%PGROUTING_VERSION%%
+FROM pgrouting/pgrouting:15-3.3-main
 
 ENV OSM2PGROUTING_VERSION 2.3.8
 
 RUN apt update \
  && apt install -y \
-        libpqxx-%%PQXX_VERSION%% \
+        libpqxx-6.4 \
  && apt install -y \
         build-essential \
         cmake \

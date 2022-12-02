@@ -1,20 +1,20 @@
-FROM postgis/postgis:%%PG_MAJOR%%-%%POSTGIS_VERSION%%
+FROM postgis/postgis:11-3.3
 
 LABEL maintainer="pgRouting Project - https://pgrouting.org"
 
-ENV PGROUTING_VERSION %%PGROUTING_VERSION%%
-ENV PGROUTING_SHA256 %%PGROUTING_SHA256%%
+ENV PGROUTING_VERSION 3.4.1
+ENV PGROUTING_SHA256 a4e034efee8cf67582b67033d9c3ff714a09d8f5425339624879df50aff3f642
 
 RUN set -ex \
  && apt update \
  && apt install -y \
-        libboost-atomic%%BOOST_VERSION%% \
-        libboost-chrono%%BOOST_VERSION%% \
-        libboost-graph%%BOOST_VERSION%% \
-        libboost-date-time%%BOOST_VERSION%% \
-        libboost-program-options%%BOOST_VERSION%% \
-        libboost-system%%BOOST_VERSION%% \
-        libboost-thread%%BOOST_VERSION%% \
+        libboost-atomic1.74.0 \
+        libboost-chrono1.74.0 \
+        libboost-graph1.74.0 \
+        libboost-date-time1.74.0 \
+        libboost-program-options1.74.0 \
+        libboost-system1.74.0 \
+        libboost-thread1.74.0 \
  && apt install -y \
         build-essential \
         cmake \
@@ -39,7 +39,7 @@ RUN set -ex \
  && make install \
  && cd / \
  && rm -rf /usr/src/pgrouting \
- && apt-mark manual postgresql-%%PG_MAJOR%% \
+ && apt-mark manual postgresql-11 \
  && apt purge -y --autoremove \
         build-essential \
         cmake \
