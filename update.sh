@@ -22,6 +22,7 @@ declare -A debianSuite=(
     [13]='bullseye-slim'
     [14]='bullseye-slim'
     [15]='bullseye-slim'
+    [16]='bullseye-slim'
 )
 
 defaultPostgisDebPkgNameVersionSuffix='3'
@@ -31,6 +32,7 @@ declare -A postgisDebPkgNameVersionSuffixes=(
     [3.1]='3'
     [3.2]='3'
     [3.3]='3'
+    [3.4]='3'
 )
 
 releaseUrl='https://api.github.com/repos/pgRouting/pgrouting/releases'
