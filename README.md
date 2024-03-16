@@ -24,6 +24,8 @@ pgRouting Docker images.
 There are several versions available:
 
 - With pgRouting v3:
+  - [3.6 with Postgres 16 + PostGIS 3.4](16-3.4-3.6/). Docker image: `pgrouting/pgrouting:16-3.4-3.6`
+  - [3.5 with Postgres 16 + PostGIS 3.4](16-3.4-3.5/). Docker image: `pgrouting/pgrouting:16-3.4-3.5`
   - [3.4 with Postgres 15 + PostGIS 3.3](15-3.3-3.4/). Docker image: `pgrouting/pgrouting:15-3.3-3.4`
   - [3.4 with Postgres 14 + PostGIS 3.3](14-3.3-3.4/). Docker image: `pgrouting/pgrouting:14-3.3-3.4`
   - [3.4 with Postgres 13 + PostGIS 3.3](13-3.3-3.4/). Docker image: `pgrouting/pgrouting:13-3.3-3.4`
@@ -133,6 +135,7 @@ To make new version for example `x.x`, run following:
 ```
 mkdir 15-3.3-x.x
 touch 15-3.3-x.x/Dockerfile
+touch 15-3.3-x.x/version.txt
 make update
 ```
 
