@@ -1,4 +1,4 @@
-FROM pgrouting/pgrouting:16-3.4-3.6.1
+FROM pgrouting/pgrouting:16-3.4-3.6.2
 
 ENV OSM2PGROUTING_VERSION 2.3.8
 

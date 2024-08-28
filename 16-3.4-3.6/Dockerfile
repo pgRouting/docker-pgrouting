@@ -2,8 +2,8 @@ FROM postgis/postgis:16-3.4
 
 LABEL maintainer="pgRouting Project - https://pgrouting.org"
 
-ENV PGROUTING_VERSION 3.6.1
-ENV PGROUTING_SHA256 30231dfe01211f709fca9ac0140454ba6bd812f2b7f45fb30222169cd4e8b061
+ENV PGROUTING_VERSION 3.6.2
+ENV PGROUTING_SHA256 f4a1ed79d6f714e52548eca3bb8e5593c6745f1bde92eb5fb858efd8984dffa2
 
 RUN set -ex \
  && apt update \
