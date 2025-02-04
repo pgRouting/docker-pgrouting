@@ -32,7 +32,12 @@ IMAGE_NAME ?= pgrouting
 
 DOCKER=docker
 
-all: build
+GIT=git
+OFFIMG_LOCAL_CLONE=$(HOME)/official-images
+OFFIMG_REPO_URL=https://github.com/docker-library/official-images.git
+
+
+all: build test
 
 
 ### RULES FOR BUILDING ###
@@ -50,6 +55,21 @@ build-$1:
 endef
 $(foreach version,$(VERSIONS),$(eval $(call build-version,$(version))))
 
+
+## RULES FOR TESTING ###
+
+test-prepare:
+ifeq ("$(wildcard $(OFFIMG_LOCAL_CLONE))","")
+	$(GIT) clone $(OFFIMG_REPO_URL) $(OFFIMG_LOCAL_CLONE)
+endif
+
+test: $(foreach version,$(VERSIONS),test-$(version))
+
+define test-version
+test-$1: test-prepare build-$1
+$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(version)
+endef
+$(foreach version,$(VERSIONS),$(eval $(call test-version,$(version))))
 
 ### RULES FOR TAGGING ###
 
@@ -77,6 +97,7 @@ update:
 	$(DOCKER) run --rm -v $$(pwd):/work -w /work buildpack-deps ./update.sh
 
 
-.PHONY: all build tag-latest push push-latest update \
-        $(foreach version,$(VERSIONS),build-$(version)) \
-        $(foreach version,$(VERSIONS),push-$(version))
+.PHONY: all build test-prepare test tag-latest push push-latest update \
+	$(foreach version,$(VERSIONS),build-$(version)) \
+	$(foreach version,$(VERSIONS),test-$(version)) \
+	$(foreach version,$(VERSIONS),push-$(version))
