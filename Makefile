@@ -67,7 +67,7 @@ test: $(foreach version,$(VERSIONS),test-$(version))
 
 define test-version
 test-$1: test-prepare build-$1
-$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(version)
+	$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(version)
 endef
 $(foreach version,$(VERSIONS),$(eval $(call test-version,$(version))))
 
@@ -82,7 +82,7 @@ tag-latest: $(BUILD_LATEST_DEP)
 push: $(foreach version,$(VERSIONS),push-$(version)) $(PUSH_DEP)
 
 define push-version
-push-$1:
+push-$1: test-$1
 	$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME):$(version)
 endef
 $(foreach version,$(VERSIONS),$(eval $(call push-version,$(version))))
