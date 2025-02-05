@@ -68,10 +68,10 @@ test: $(foreach version,$(VERSIONS),test-$(version))
 define test-version
 test-$1: test-prepare build-$1
 	$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(shell cat $1/version.txt)
-	$(DOCKER) run --rm -it --name $(IMAGE_NAME)-extra-$(shell cat $1/version.txt) -e POSTGRES_PASSWORD=postgres -p 5432:5432 $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell cat $1/version.txt) osm2pgrouting --version
+	$(DOCKER) run --rm --name $(IMAGE_NAME)-extra-$(shell cat $1/version.txt) -e POSTGRES_PASSWORD=postgres -p 5432:5432 $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell cat $1/version.txt) osm2pgrouting --version
 	# if [ "$(shell echo $1)" != "$(shell cat $1/version.txt)" ]; then\
 	# 	$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(shell echo $1);\
-	# 	$(DOCKER) run --rm -it --name $(IMAGE_NAME)-extra-$(shell echo $1) -e POSTGRES_PASSWORD=postgres -p 5432:5432 $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell echo $1) osm2pgrouting --version;\
+	# 	$(DOCKER) run --rm --name $(IMAGE_NAME)-extra-$(shell echo $1) -e POSTGRES_PASSWORD=postgres -p 5432:5432 $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell echo $1) osm2pgrouting --version;\
 	# fi
 endef
 $(foreach version,$(VERSIONS),$(eval $(call test-version,$(version))))
