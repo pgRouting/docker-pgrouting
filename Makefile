@@ -67,7 +67,12 @@ test: $(foreach version,$(VERSIONS),test-$(version))
 
 define test-version
 test-$1: test-prepare build-$1
-	$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(version)
+	$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(shell cat $1/version.txt)
+	$(DOCKER) run --name $(IMAGE_NAME)-extra -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell cat $1/version.txt)
+	if [ "$(shell echo $1)" != "$(shell cat $1/version.txt)" ]; then\
+		$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(shell echo $1);\
+		$(DOCKER) run --name $(IMAGE_NAME)-extra -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell echo $1);\
+	fi
 endef
 $(foreach version,$(VERSIONS),$(eval $(call test-version,$(version))))
 
@@ -75,6 +80,7 @@ $(foreach version,$(VERSIONS),$(eval $(call test-version,$(version))))
 
 tag-latest: $(BUILD_LATEST_DEP)
 	$(DOCKER) image tag $(REPO_NAME)/$(IMAGE_NAME):$(LATEST_VERSION) $(REPO_NAME)/$(IMAGE_NAME):latest
+	$(DOCKER) image tag $(REPO_NAME)/$(IMAGE_NAME)-extra:$(LATEST_VERSION) $(REPO_NAME)/$(IMAGE_NAME)-extra:latest
 
 
 ### RULES FOR PUSHING ###
@@ -83,12 +89,18 @@ push: $(foreach version,$(VERSIONS),push-$(version)) $(PUSH_DEP)
 
 define push-version
 push-$1: test-$1
-	$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME):$(version)
+	$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME):$(shell cat $1/version.txt)
+	$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell cat $1/version.txt)
+	if [ "$(shell echo $1)" != "$(shell cat $1/version.txt)" ]; then\
+		$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME):$(shell echo $1);\
+		$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell echo $1);\
+	fi
 endef
 $(foreach version,$(VERSIONS),$(eval $(call push-version,$(version))))
 
 push-latest: tag-latest $(PUSH_LATEST_DEP)
 	$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME):latest
+	$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME)-extra:latest
 
 
 ### RULES FOR UPDATING ###
