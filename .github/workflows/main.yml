@@ -18,16 +18,9 @@ jobs:
   make-docker-images:
     strategy:
       matrix:
-        postgres: [16] # [12, 13, 14, 15, 16, 17]
-        postgis: [3.4] # [3.4, 3.5]
-        pgrouting: [3.5, 3.6] # [develop, main, 3.5, 3.6, 3.7]
-        # exclude:
-        #   - postgres: 12
-        #     pgrouting: 3.7
-        #   - postgres: 12
-        #     pgrouting: main
-        #   - postgres: 12
-        #     pgrouting: develop
+        postgres: [13, 14, 15, 16, 17]
+        postgis: [3.5]
+        pgrouting: [develop, main, 3.6, 3.7]
 
     name: Build Docker image for ${{ matrix.postgres }}-${{ matrix.postgis }}-${{ matrix.pgrouting }}
     runs-on: ubuntu-20.04
