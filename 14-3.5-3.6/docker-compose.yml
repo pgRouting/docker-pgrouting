@@ -1,7 +1,7 @@
 version: "3"
 services:
   pgrouting:
-    image: pgrouting/pgrouting:14-3.3-3.3.5
+    image: pgrouting/pgrouting:14-3.5-3.6.3
     ports:
       - "5432:5432"
     volumes:
