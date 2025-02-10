@@ -24,30 +24,28 @@ pgRouting Docker images.
 There are several versions available:
 
 - With pgRouting v3:
-  - [3.6 with Postgres 16 + PostGIS 3.4](16-3.4-3.6/). Docker image: `pgrouting/pgrouting:16-3.4-3.6`
-  - [3.5 with Postgres 16 + PostGIS 3.4](16-3.4-3.5/). Docker image: `pgrouting/pgrouting:16-3.4-3.5`
-  - [3.4 with Postgres 15 + PostGIS 3.3](15-3.3-3.4/). Docker image: `pgrouting/pgrouting:15-3.3-3.4`
-  - [3.4 with Postgres 14 + PostGIS 3.3](14-3.3-3.4/). Docker image: `pgrouting/pgrouting:14-3.3-3.4`
-  - [3.4 with Postgres 13 + PostGIS 3.3](13-3.3-3.4/). Docker image: `pgrouting/pgrouting:13-3.3-3.4`
-  - [3.4 with Postgres 12 + PostGIS 3.3](12-3.3-3.4/). Docker image: `pgrouting/pgrouting:12-3.3-3.4`
-  - [3.4 with Postgres 11 + PostGIS 3.3](11-3.3-3.4/). Docker image: `pgrouting/pgrouting:11-3.3-3.4`
-  - [3.3 with Postgres 15 + PostGIS 3.3](15-3.3-3.3/). Docker image: `pgrouting/pgrouting:15-3.3-3.3`
-  - [3.3 with Postgres 14 + PostGIS 3.3](14-3.3-3.3/). Docker image: `pgrouting/pgrouting:14-3.3-3.3`
-  - [3.3 with Postgres 13 + PostGIS 3.3](13-3.3-3.3/). Docker image: `pgrouting/pgrouting:13-3.3-3.3`
-  - [3.3 with Postgres 12 + PostGIS 3.3](12-3.3-3.3/). Docker image: `pgrouting/pgrouting:12-3.3-3.3`
-  - [3.3 with Postgres 11 + PostGIS 3.3](11-3.3-3.3/). Docker image: `pgrouting/pgrouting:11-3.3-3.3`
+  - [3.7 with Postgres 17 + PostGIS 3.5](17-3.5-3.4/). Docker image: `pgrouting/pgrouting:17-3.5-3.7`
+  - [3.7 with Postgres 16 + PostGIS 3.5](16-3.5-3.4/). Docker image: `pgrouting/pgrouting:16-3.5-3.7`
+  - [3.7 with Postgres 15 + PostGIS 3.5](17-3.5-3.7/). Docker image: `pgrouting/pgrouting:15-3.5-3.7`
+  - [3.7 with Postgres 14 + PostGIS 3.5](14-3.5-3.4/). Docker image: `pgrouting/pgrouting:14-3.5-3.7`
+  - [3.7 with Postgres 13 + PostGIS 3.5](13-3.5-3.4/). Docker image: `pgrouting/pgrouting:13-3.5-3.7`
+  - [3.6 with Postgres 17 + PostGIS 3.5](17-3.5-3.3/). Docker image: `pgrouting/pgrouting:17-3.5-3.6`
+  - [3.6 with Postgres 16 + PostGIS 3.5](16-3.5-3.3/). Docker image: `pgrouting/pgrouting:16-3.5-3.6`
+  - [3.6 with Postgres 15 + PostGIS 3.5](15-3.5-3.3/). Docker image: `pgrouting/pgrouting:15-3.5-3.6`
+  - [3.6 with Postgres 14 + PostGIS 3.5](14-3.5-3.3/). Docker image: `pgrouting/pgrouting:14-3.5-3.6`
+  - [3.6 with Postgres 13 + PostGIS 3.5](13-3.5-3.3/). Docker image: `pgrouting/pgrouting:13-3.5-3.6`
 - With pgRouting main branch (*):
-  - [main branch with Postgres 15 + PostGIS 3.3](15-3.3-main/). Docker image: `pgrouting/pgrouting:15-3.3-main`
-  - [main branch with Postgres 14 + PostGIS 3.3](14-3.3-main/). Docker image: `pgrouting/pgrouting:14-3.3-main`
-  - [main branch with Postgres 13 + PostGIS 3.3](13-3.3-main/). Docker image: `pgrouting/pgrouting:13-3.3-main`
-  - [main branch with Postgres 12 + PostGIS 3.3](12-3.3-main/). Docker image: `pgrouting/pgrouting:12-3.3-main`
-  - [main branch with Postgres 11 + PostGIS 3.3](11-3.3-main/). Docker image: `pgrouting/pgrouting:11-3.3-main`
+  - [main branch with Postgres 17 + PostGIS 3.5](17-3.5-main/). Docker image: `pgrouting/pgrouting:17-3.5-main`
+  - [main branch with Postgres 16 + PostGIS 3.5](16-3.5-main/). Docker image: `pgrouting/pgrouting:16-3.5-main`
+  - [main branch with Postgres 15 + PostGIS 3.5](15-3.5-main/). Docker image: `pgrouting/pgrouting:15-3.5-main`
+  - [main branch with Postgres 14 + PostGIS 3.5](14-3.5-main/). Docker image: `pgrouting/pgrouting:14-3.5-main`
+  - [main branch with Postgres 13 + PostGIS 3.5](13-3.5-main/). Docker image: `pgrouting/pgrouting:13-3.5-main`
 - With pgRouting develop branch (*):
-  - [develop branch with Postgres 15 + PostGIS 3.3](15-3.3-develop/). Docker image: `pgrouting/pgrouting:15-3.3-develop`
-  - [develop branch with Postgres 14 + PostGIS 3.3](14-3.3-develop/). Docker image: `pgrouting/pgrouting:14-3.3-develop`
-  - [develop branch with Postgres 13 + PostGIS 3.3](13-3.3-develop/). Docker image: `pgrouting/pgrouting:13-3.3-develop`
-  - [develop branch with Postgres 12 + PostGIS 3.3](12-3.3-develop/). Docker image: `pgrouting/pgrouting:12-3.3-develop`
-  - [develop branch with Postgres 11 + PostGIS 3.3](11-3.3-develop/). Docker image: `pgrouting/pgrouting:11-3.3-develop`
+  - [develop branch with Postgres 17 + PostGIS 3.5](17-3.5-develop/). Docker image: `pgrouting/pgrouting:17-3.5-develop`
+  - [develop branch with Postgres 16 + PostGIS 3.5](16-3.5-develop/). Docker image: `pgrouting/pgrouting:16-3.5-develop`
+  - [develop branch with Postgres 15 + PostGIS 3.5](15-3.5-develop/). Docker image: `pgrouting/pgrouting:15-3.5-develop`
+  - [develop branch with Postgres 14 + PostGIS 3.5](14-3.5-develop/). Docker image: `pgrouting/pgrouting:14-3.5-develop`
+  - [develop branch with Postgres 13 + PostGIS 3.5](13-3.5-develop/). Docker image: `pgrouting/pgrouting:13-3.5-develop`
 
 (*) If you want to use the last versions of develop or main branches you should consider to build the image by your own. See [here](#how-to-build-images) how to build images:
 
@@ -55,9 +53,9 @@ There are several versions available:
 
 `{PostgreSQL major}-{PostGIS major/minor}-{pgRouting version}`
 
-Tag for pgRouting 3.4.1 with PostgreSQL 15 and PostGIS 3.3:
+Tag for pgRouting 3.7.2 with PostgreSQL 17 and PostGIS 3.5:
 
-`pgrouting/pgrouting:15-3.3-3.4.1`
+`pgrouting/pgrouting:17-3.5-3.7.2`
 
 ## How to use
 
@@ -65,7 +63,7 @@ Tag for pgRouting 3.4.1 with PostgreSQL 15 and PostGIS 3.3:
 
 Run postgres database:
 ```sh
-$ cd 15-3.3-3.4
+$ cd 17-3.5-3.7
 $ docker-compose up
 ```
 
@@ -73,7 +71,7 @@ $ docker-compose up
 
 Run postgres database:
 ```sh
-$ cd 15-3.3-3.4
+$ cd 17-3.5-3.7
 $ docker run --name pgrouting -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d pgrouting/pgrouting:$(cat version.txt)
 ```
 
@@ -81,7 +79,7 @@ $ docker run --name pgrouting -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d pgro
 
 Building images:
 ```sh
-$ cd 15-3.3-3.4
+$ cd 17-3.5-3.7
 $ docker build -t pgrouting/pgrouting:$(cat version.txt) .
 ```
 
@@ -114,7 +112,7 @@ test=# select version();
 test=# select pgr_version();
  pgr_version 
 -------------
- 3.4.1
+ 3.7.2
 (1 row)
 
 test=# select postgis_full_version();
@@ -133,9 +131,9 @@ test=#
 To make new version for example `x.x`, run following:
 
 ```
-mkdir 15-3.3-x.x
-touch 15-3.3-x.x/Dockerfile
-touch 15-3.3-x.x/version.txt
+mkdir 17-3.5-x.x
+touch 17-3.5-x.x/Dockerfile
+touch 17-3.5-x.x/version.txt
 make update
 ```
 
