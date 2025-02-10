@@ -66,7 +66,7 @@ endif
 test: $(foreach version,$(VERSIONS),test-$(version))
 
 define test-version
-test-$1: test-prepare build-$1
+test-$1: test-prepare
 	$(OFFIMG_LOCAL_CLONE)/test/run.sh -c $(OFFIMG_LOCAL_CLONE)/test/config.sh -c test/pgrouting-config.sh $(REPO_NAME)/$(IMAGE_NAME):$(shell cat $1/version.txt)
 	$(DOCKER) run --rm --name $(IMAGE_NAME)-extra-$(shell cat $1/version.txt) -e POSTGRES_PASSWORD=postgres -p 5432:5432 $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell cat $1/version.txt) osm2pgrouting --version
 	# if [ "$(shell echo $1)" != "$(shell cat $1/version.txt)" ]; then\
@@ -88,7 +88,7 @@ tag-latest: $(BUILD_LATEST_DEP)
 push: $(foreach version,$(VERSIONS),push-$(version)) $(PUSH_DEP)
 
 define push-version
-push-$1: test-$1
+push-$1:
 	$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME):$(shell cat $1/version.txt)
 	$(DOCKER) image push $(REPO_NAME)/$(IMAGE_NAME)-extra:$(shell cat $1/version.txt)
 	if [ "$(shell echo $1)" != "$(shell cat $1/version.txt)" ]; then\
