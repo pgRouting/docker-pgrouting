@@ -24,7 +24,7 @@ jobs:
         pgrouting: [develop, main, 3.6, 3.7]
 
     name: Build Docker image for ${{ matrix.postgres }}-${{ matrix.postgis }}-${{ matrix.pgrouting }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     continue-on-error: ${{ (matrix.pgrouting == 'develop') || (matrix.pgrouting == 'main') }}
     env:
       VERSION: ${{ matrix.postgres }}-${{ matrix.postgis }}-${{ matrix.pgrouting }}
