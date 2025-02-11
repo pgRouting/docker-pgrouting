@@ -26,7 +26,7 @@ There are several versions available:
 - With pgRouting v3:
   - [3.7 with Postgres 17 + PostGIS 3.5](17-3.5-3.4/). Docker image: `pgrouting/pgrouting:17-3.5-3.7`
   - [3.7 with Postgres 16 + PostGIS 3.5](16-3.5-3.4/). Docker image: `pgrouting/pgrouting:16-3.5-3.7`
-  - [3.7 with Postgres 15 + PostGIS 3.5](17-3.5-3.7/). Docker image: `pgrouting/pgrouting:15-3.5-3.7`
+  - [3.7 with Postgres 15 + PostGIS 3.5](15-3.5-3.7/). Docker image: `pgrouting/pgrouting:15-3.5-3.7`
   - [3.7 with Postgres 14 + PostGIS 3.5](14-3.5-3.4/). Docker image: `pgrouting/pgrouting:14-3.5-3.7`
   - [3.7 with Postgres 13 + PostGIS 3.5](13-3.5-3.4/). Docker image: `pgrouting/pgrouting:13-3.5-3.7`
   - [3.6 with Postgres 17 + PostGIS 3.5](17-3.5-3.3/). Docker image: `pgrouting/pgrouting:17-3.5-3.6`
@@ -53,9 +53,9 @@ There are several versions available:
 
 `{PostgreSQL major}-{PostGIS major/minor}-{pgRouting version}`
 
-Tag for pgRouting 3.7.2 with PostgreSQL 17 and PostGIS 3.5:
+Tag for pgRouting 3.7.3 with PostgreSQL 17 and PostGIS 3.5:
 
-`pgrouting/pgrouting:17-3.5-3.7.2`
+`pgrouting/pgrouting:17-3.5-3.7.3`
 
 ## How to use
 
