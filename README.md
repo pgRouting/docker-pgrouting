@@ -64,7 +64,7 @@ Tag for pgRouting 3.7.2 with PostgreSQL 17 and PostGIS 3.5:
 Run postgres database:
 ```sh
 $ cd 17-3.5-3.7
-$ docker-compose up
+$ docker compose up
 ```
 
 ### Running pgRouting without Docker compose
@@ -86,7 +86,7 @@ $ docker build -t pgrouting/pgrouting:$(cat version.txt) .
 ### Using psql with Docker compose:
 
 ```sh
-$ docker-compose exec pgrouting psql -U postgres
+$ docker compose exec pgrouting psql -U postgres
 ```
 
 Example:
