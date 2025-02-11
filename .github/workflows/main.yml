@@ -19,7 +19,7 @@ jobs:
       matrix:
         postgres: [13, 14, 15, 16, 17]
         postgis: [3.5]
-        pgrouting: [develop, main, 3.6, 3.7]
+        pgrouting: [3.6, 3.7, main, develop]
 
     name: Build Docker image for ${{ matrix.postgres }}-${{ matrix.postgis }}-${{ matrix.pgrouting }}
     runs-on: ubuntu-24.04
