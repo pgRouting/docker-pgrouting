@@ -92,7 +92,7 @@ $ docker-compose exec pgrouting psql -U postgres
 Example:
 
 ```
-psql (15.1 (Debian 15.1-1.pgdg110+1))
+psql (17.2 (Debian 17.2-1.pgdg110+1))
 Type "help" for help.
 
 postgres=# create database test;
@@ -104,23 +104,21 @@ CREATE EXTENSION
 test=# create extension pgrouting;
 CREATE EXTENSION
 test=# select version();
-                                                           version
+                                                           version                                                           
 -----------------------------------------------------------------------------------------------------------------------------
- PostgreSQL 15.1 (Debian 15.1-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+ PostgreSQL 17.2 (Debian 17.2-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
 (1 row)
 
 test=# select pgr_version();
  pgr_version 
 -------------
- 3.7.2
+ 3.7.3
 (1 row)
 
 test=# select postgis_full_version();
-                                                                       postgis_full_version
----------------------------------------------------------------------------------------------------------------------------------------
-----------------------------
- POSTGIS="3.3.2 4975da8" [EXTENSION] PGSQL="150" GEOS="3.9.0-CAPI-1.16.2" PROJ="7.2.1" LIBXML="2.9.10" LIBJSON="0.15" LIBPROTOBUF="1.3.
-3" WAGYU="0.5.0 (Internal)"
+                                  postgis_full_version                                                                                                                                                                    
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ POSTGIS="3.5.2 dea6d0a" [EXTENSION] PGSQL="170" GEOS="3.9.0-CAPI-1.16.2" PROJ="7.2.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/var/lib/postgresql/.local/share/proj DATABASE_PATH=/usr/share/proj/proj.db" (compiled against PROJ 7.2.1) LIBXML="2.9.10" LIBJSON="0.15" LIBPROTOBUF="1.3.3" WAGYU="0.5.0 (Internal)"
 (1 row)
 
 test=# 
