@@ -1,4 +1,3 @@
-version: "3"
 services:
   pgrouting:
     image: pgrouting/pgrouting:%%PG_MAJOR%%-%%POSTGIS_VERSION%%-%%PGROUTING_VERSION%%
