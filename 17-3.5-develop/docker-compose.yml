@@ -1,4 +1,3 @@
-version: "3"
 services:
   pgrouting:
     image: pgrouting/pgrouting:17-3.5-develop
