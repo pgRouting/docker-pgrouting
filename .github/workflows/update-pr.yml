@@ -25,7 +25,7 @@ jobs:
     - name: Check update
       id: check-update
       run: |
-        echo "::set-output name=updated::$(git status --porcelain | wc -l)"
+        echo "updated=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
     - name: Create Pull Request
       if: steps.check-update.outputs.updated > 0
       uses: peter-evans/create-pull-request@v7
