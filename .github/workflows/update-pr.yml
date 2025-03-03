@@ -2,8 +2,8 @@ name: Docker pgRouting update PR
 
 on:
   schedule:
-    # Run at 05:40 UTC
-    - cron: '40 5 * * *'
+    # Run at 00:00 UTC
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 defaults:
