@@ -1,0 +1,36 @@
+name: Docker pgRouting update PR
+
+on:
+  schedule:
+    # Run at 05:30 UTC
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  make-update:
+    name: Create update PR after make update
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v4
+
+    - name: Make update
+      run: make update
+
+    - name: Check update
+      id: check-update
+      run: |
+        echo "::set-output name=updated::$(git status --porcelain | wc -l)"
+    - name: Create Pull Request
+      if: steps.check-update.outputs.updated > 0
+      uses: peter-evans/create-pull-request@v7
+      with:
+        commit-message: 'Update hashes and versions'
+        branch: update-hashes-and-versions
+        delete-branch: true
+        title: 'Update hashes and versions'
