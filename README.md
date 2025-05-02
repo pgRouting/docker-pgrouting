@@ -1,8 +1,7 @@
 # docker-pgrouting
 
-![Docker automated](https://img.shields.io/docker/cloud/automated/pgrouting/pgrouting)
-![Docker status](https://img.shields.io/docker/cloud/build/pgrouting/pgrouting)
-![Docker builds](https://img.shields.io/docker/pulls/pgrouting/pgrouting)
+[![Build Status](https://github.com/pgRouting/docker-pgrouting/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/pgRouting/docker-pgrouting/actions/workflows/main.yml?query=branch%3Amaster)
+![Docker pulls](https://img.shields.io/docker/pulls/pgrouting/pgrouting)
 
 
 pgRouting Docker images.
@@ -24,16 +23,16 @@ pgRouting Docker images.
 There are several versions available:
 
 - With pgRouting v3:
-  - [3.7 with Postgres 17 + PostGIS 3.5](17-3.5-3.4/). Docker image: `pgrouting/pgrouting:17-3.5-3.7`
-  - [3.7 with Postgres 16 + PostGIS 3.5](16-3.5-3.4/). Docker image: `pgrouting/pgrouting:16-3.5-3.7`
+  - [3.7 with Postgres 17 + PostGIS 3.5](17-3.5-3.7/). Docker image: `pgrouting/pgrouting:17-3.5-3.7`
+  - [3.7 with Postgres 16 + PostGIS 3.5](16-3.5-3.7/). Docker image: `pgrouting/pgrouting:16-3.5-3.7`
   - [3.7 with Postgres 15 + PostGIS 3.5](15-3.5-3.7/). Docker image: `pgrouting/pgrouting:15-3.5-3.7`
-  - [3.7 with Postgres 14 + PostGIS 3.5](14-3.5-3.4/). Docker image: `pgrouting/pgrouting:14-3.5-3.7`
-  - [3.7 with Postgres 13 + PostGIS 3.5](13-3.5-3.4/). Docker image: `pgrouting/pgrouting:13-3.5-3.7`
-  - [3.6 with Postgres 17 + PostGIS 3.5](17-3.5-3.3/). Docker image: `pgrouting/pgrouting:17-3.5-3.6`
-  - [3.6 with Postgres 16 + PostGIS 3.5](16-3.5-3.3/). Docker image: `pgrouting/pgrouting:16-3.5-3.6`
-  - [3.6 with Postgres 15 + PostGIS 3.5](15-3.5-3.3/). Docker image: `pgrouting/pgrouting:15-3.5-3.6`
-  - [3.6 with Postgres 14 + PostGIS 3.5](14-3.5-3.3/). Docker image: `pgrouting/pgrouting:14-3.5-3.6`
-  - [3.6 with Postgres 13 + PostGIS 3.5](13-3.5-3.3/). Docker image: `pgrouting/pgrouting:13-3.5-3.6`
+  - [3.7 with Postgres 14 + PostGIS 3.5](14-3.5-3.7/). Docker image: `pgrouting/pgrouting:14-3.5-3.7`
+  - [3.7 with Postgres 13 + PostGIS 3.5](13-3.5-3.7/). Docker image: `pgrouting/pgrouting:13-3.5-3.7`
+  - [3.6 with Postgres 17 + PostGIS 3.5](17-3.5-3.6/). Docker image: `pgrouting/pgrouting:17-3.5-3.6`
+  - [3.6 with Postgres 16 + PostGIS 3.5](16-3.5-3.6/). Docker image: `pgrouting/pgrouting:16-3.5-3.6`
+  - [3.6 with Postgres 15 + PostGIS 3.5](15-3.5-3.6/). Docker image: `pgrouting/pgrouting:15-3.5-3.6`
+  - [3.6 with Postgres 14 + PostGIS 3.5](14-3.5-3.6/). Docker image: `pgrouting/pgrouting:14-3.5-3.6`
+  - [3.6 with Postgres 13 + PostGIS 3.5](13-3.5-3.6/). Docker image: `pgrouting/pgrouting:13-3.5-3.6`
 - With pgRouting main branch (*):
   - [main branch with Postgres 17 + PostGIS 3.5](17-3.5-main/). Docker image: `pgrouting/pgrouting:17-3.5-main`
   - [main branch with Postgres 16 + PostGIS 3.5](16-3.5-main/). Docker image: `pgrouting/pgrouting:16-3.5-main`
