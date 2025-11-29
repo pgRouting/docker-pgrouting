@@ -24,7 +24,6 @@ There are several versions available:
 
 - With pgRouting v3:
   - [4.0 with Postgres 18 + PostGIS 3.6](18-3.6-4.0/). Docker image: `pgrouting/pgrouting:18-3.6-4.0`
-  - [4.0 with Postgres 17 + PostGIS 3.6](17-3.6-4.0/). Docker image: `pgrouting/pgrouting:17-3.6-4.0`
   - [4.0 with Postgres 17 + PostGIS 3.5](17-3.5-4.0/). Docker image: `pgrouting/pgrouting:17-3.5-4.0`
   - [4.0 with Postgres 16 + PostGIS 3.5](16-3.5-4.0/). Docker image: `pgrouting/pgrouting:16-3.5-4.0`
   - [4.0 with Postgres 15 + PostGIS 3.5](15-3.5-4.0/). Docker image: `pgrouting/pgrouting:15-3.5-4.0`
@@ -43,14 +42,12 @@ There are several versions available:
   - [3.7 with Postgres 14 + PostGIS 3.5](14-3.5-3.7/). Docker image: `pgrouting/pgrouting:14-3.5-3.7`
 - With pgRouting main branch (*):
   - [main branch with Postgres 18 + PostGIS 3.6](18-3.6-main/). Docker image: `pgrouting/pgrouting:18-3.6-main`
-  - [main branch with Postgres 17 + PostGIS 3.6](17-3.6-main/). Docker image: `pgrouting/pgrouting:17-3.6-main`
   - [main branch with Postgres 17 + PostGIS 3.5](17-3.5-main/). Docker image: `pgrouting/pgrouting:17-3.5-main`
   - [main branch with Postgres 16 + PostGIS 3.5](16-3.5-main/). Docker image: `pgrouting/pgrouting:16-3.5-main`
   - [main branch with Postgres 15 + PostGIS 3.5](15-3.5-main/). Docker image: `pgrouting/pgrouting:15-3.5-main`
   - [main branch with Postgres 14 + PostGIS 3.5](14-3.5-main/). Docker image: `pgrouting/pgrouting:14-3.5-main`
 - With pgRouting develop branch (*):
   - [develop branch with Postgres 18 + PostGIS 3.6](18-3.6-develop/). Docker image: `pgrouting/pgrouting:18-3.6-develop`
-  - [develop branch with Postgres 17 + PostGIS 3.6](17-3.6-develop/). Docker image: `pgrouting/pgrouting:17-3.6-develop`
   - [develop branch with Postgres 17 + PostGIS 3.5](17-3.5-develop/). Docker image: `pgrouting/pgrouting:17-3.5-develop`
   - [develop branch with Postgres 16 + PostGIS 3.5](16-3.5-develop/). Docker image: `pgrouting/pgrouting:16-3.5-develop`
   - [develop branch with Postgres 15 + PostGIS 3.5](15-3.5-develop/). Docker image: `pgrouting/pgrouting:15-3.5-develop`
