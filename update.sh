@@ -16,7 +16,6 @@ IFS=$'\n'; versions=( $(echo "${versions[*]}" | sort -V) ); unset IFS
 defaultDebianSuite='bullseye-slim'
 declare -A debianSuite=(
     # https://github.com/docker-library/postgres/issues/582
-    [10]='bullseye-slim'
     [11]='bullseye-slim'
     [12]='bullseye-slim'
     [13]='bullseye-slim'
@@ -24,17 +23,18 @@ declare -A debianSuite=(
     [15]='bullseye-slim'
     [16]='bullseye-slim'
     [17]='bullseye-slim'
+    [18]='trixie-slim'
 )
 
 defaultPostgisDebPkgNameVersionSuffix='3'
 declare -A postgisDebPkgNameVersionSuffixes=(
-    [2.5]='2.5'
     [3.0]='3'
     [3.1]='3'
     [3.2]='3'
     [3.3]='3'
     [3.4]='3'
     [3.5]='3'
+    [3.6]='3'
 )
 
 releaseUrl='https://api.github.com/repos/pgRouting/pgrouting/releases'
@@ -51,15 +51,12 @@ for version in "${versions[@]}"; do
     tag="${debianSuite[$postgresVersion]:-$defaultDebianSuite}"
     suite="${tag%%-slim}"
     
-    if [ "$suite" = "bullseye" ]; then
+    if [ "$suite" = "trixie" ]; then
+      boostVersion="1.83.0"
+      pqxxVersion="7.10"
+    elif [ "$suite" = "bullseye" ]; then
       boostVersion="1.74.0"
       pqxxVersion="6.4"
-    elif [ "$suite" = "buster" ]; then
-      boostVersion="1.67.0"
-      pqxxVersion="6.2"
-    elif [ "$suite" = "stretch" ]; then
-      boostVersion="1.62.0"
-      pqxxVersion="4.0v5"
     else
       echo "Unknown debian version; stop"
       exit 1

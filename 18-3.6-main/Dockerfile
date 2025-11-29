@@ -1,0 +1,45 @@
+FROM postgis/postgis:18-3.6
+
+LABEL maintainer="pgRouting Project - https://pgrouting.org"
+
+ENV PGROUTING_VERSION=main
+ENV PGROUTING_GIT_HASH=4f0eec583f0c9e6a82a5b3356ff300029d11ed53
+
+RUN apt update \
+ && apt install -y \
+        libboost-atomic1.83.0 \
+        libboost-chrono1.83.0 \
+        libboost-graph1.83.0 \
+        libboost-date-time1.83.0 \
+        libboost-program-options1.83.0 \
+        libboost-system1.83.0 \
+        libboost-thread1.83.0 \
+ && apt install -y \
+        build-essential \
+        cmake \
+        libboost-graph-dev \
+        libpq-dev \
+        postgresql-server-dev-${PG_MAJOR} \
+        git \
+ && mkdir -p /usr/src/pgrouting \
+ && cd /usr/src/pgrouting \
+ && git init \
+ && git remote add origin https://github.com/pgRouting/pgrouting.git \
+ && git fetch --depth 1 origin :${PGROUTING_GIT_HASH} \
+ && git reset --hard FETCH_HEAD \
+ && mkdir build \
+ && cd build \
+ && cmake .. \
+ && make \
+ && make install \
+ && cd / \
+ && rm -rf /usr/src/pgrouting \
+ && apt purge -y --autoremove \
+        build-essential \
+        cmake \
+        libpq-dev \
+        libboost-graph-dev \
+        postgresql-server-dev-${PG_MAJOR} \
+        git \
+ && rm -rf /var/lib/apt/lists/*
+RUN rm /docker-entrypoint-initdb.d/10_postgis.sh
