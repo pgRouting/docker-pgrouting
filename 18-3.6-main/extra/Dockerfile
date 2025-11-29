@@ -24,12 +24,12 @@ RUN apt update \
  && cmake .. \
  && make \
  && make install \
- && cd ../tools/osmium/ \
- && mkdir build \
- && cd build \
- && cmake .. \
- && make \
- && make install \
+#  && cd ../tools/osmium/ \
+#  && mkdir build \
+#  && cd build \
+#  && cmake .. \
+#  && make \
+#  && make install \
  && cd /usr/local/src \
  && rm -rf ./* \
  && apt purge -y --autoremove \
