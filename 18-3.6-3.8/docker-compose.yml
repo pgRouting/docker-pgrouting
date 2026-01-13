@@ -1,0 +1,11 @@
+services:
+  pgrouting:
+    image: pgrouting/pgrouting:18-3.6-3.8.0
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+volumes:
+  db-data:

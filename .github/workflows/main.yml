@@ -17,9 +17,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        postgres: [13, 14, 15, 16, 17]
-        postgis: [3.5]
-        pgrouting: [3.6, 3.7, 3.8, main, develop]
+        postgres: [14, 15, 16, 17, 18]
+        postgis: [3.5, 3.6]
+        pgrouting: ['3.7', '3.8', '4.0', 'main', 'develop']
+        exclude:
+          - postgres: 18
+            postgis: 3.5
+          - postgres: 17
+            postgis: 3.6
+          - postgres: 16
+            postgis: 3.6
+          - postgres: 15
+            postgis: 3.6
+          - postgres: 14
+            postgis: 3.6
 
     name: Build Docker image for ${{ matrix.postgres }}-${{ matrix.postgis }}-${{ matrix.pgrouting }}
     runs-on: ubuntu-24.04
