@@ -96,6 +96,11 @@ for version in "${versions[@]}"; do
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g;' "$version/docker-compose.yml"
         mv "$version/extra/Dockerfile.template" "$version/extra/Dockerfile"
         sed -i 's/%%PG_MAJOR%%/'"$postgresVersion"'/g; s/%%POSTGIS_VERSION%%/'"$postgisVersion"'/g; s/%%PGROUTING_VERSION%%/'"$pgroutingVersion"'/g; s/%%PQXX_VERSION%%/'"$pqxxVersion"'/g;' "$version/extra/Dockerfile"
+        # libosmium2-dev on Trixie has incompatible C++ API changes; skip tools/osmium build temporarily
+        # See: https://github.com/pgRouting/osm2pgrouting/issues/323
+        if [ "$suite" = "trixie" ]; then
+            sed -i '/\&\& cd \.\.\/tools\/osmium\//,/\&\& make install/ s/^ \+\&\& /#  \&\& /' "$version/extra/Dockerfile"
+        fi
         echo "$postgresVersion-$postgisVersion-$pgroutingVersion" > "$version/version.txt"
     )
 done
