@@ -1,6 +1,6 @@
 services:
   pgrouting:
-    image: pgrouting/pgrouting:18-3.6-4.0.1
+    image: pgrouting/pgrouting:18-3.6-4.0.2
     ports:
       - "5432:5432"
     volumes:
