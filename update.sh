@@ -19,10 +19,10 @@ declare -A debianSuite=(
     [11]='bullseye-slim'
     [12]='bullseye-slim'
     [13]='bullseye-slim'
-    [14]='bullseye-slim'
-    [15]='bullseye-slim'
-    [16]='bullseye-slim'
-    [17]='bullseye-slim'
+    [14]='trixie-slim'
+    [15]='trixie-slim'
+    [16]='trixie-slim'
+    [17]='trixie-slim'
     [18]='trixie-slim'
 )
 

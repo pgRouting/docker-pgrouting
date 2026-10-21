@@ -13,7 +13,7 @@ RUN apt update \
         libexpat1 \
         libexpat-dev \
         libosmium2-dev \
-        libpqxx-dev \
+        libpqxx-dev=7.10.* \
         zlib1g-dev \
  && cd /usr/local/src \
  && wget https://github.com/pgRouting/osm2pgrouting/archive/v${OSM2PGROUTING_VERSION}.tar.gz \
