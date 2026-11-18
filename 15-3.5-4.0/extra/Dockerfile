@@ -1,4 +1,4 @@
-FROM pgrouting/pgrouting:15-3.5-4.0.1
+FROM pgrouting/pgrouting:15-3.5-4.0.2
 
 ENV OSM2PGROUTING_VERSION=3.0.0
 
